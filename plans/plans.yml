@@ -1,0 +1,25 @@
+plans:
+  - name: Public (Free)
+    description: >-
+      The Olympus Protocol Metrics API and OHM Supply APIs are fully public
+      and free to use with no authentication required. All endpoints are
+      served through Cloudflare with a one-hour edge cache TTL for data
+      routes. No API keys, registration, or rate limit headers are documented.
+      The date-range query window is capped at 366 days per request by the
+      server-side METRICS_API_MAX_RANGE_DAYS setting.
+    url: https://docs.olympusdao.finance/
+    tags:
+      - Free
+      - Public
+      - No Authentication
+    rate_limits:
+      - period: none documented
+        limit: none documented
+    features:
+      - Daily protocol metrics (OHM price, APY, index, supply, treasury value)
+      - Daily treasury asset records per token/wallet/chain
+      - Daily OHM supply attribution records
+      - Date-range queries up to 366 days
+      - CORS open (access-control-allow-origin: *)
+      - No API key required
+      - OpenAPI specification at /openapi.json

@@ -1,0 +1,24 @@
+finops:
+  description: >-
+    All public OlympusDAO APIs are free to consume with no pricing tiers,
+    subscription fees, or metered billing. The Protocol Metrics API is
+    self-hosted infrastructure (Railway + Cloudflare) operated by the
+    OlympusDAO community. The OHM Supply APIs run on Google Cloud Functions
+    with Firebase Hosting and a Firestore cache. Infrastructure costs are
+    borne by the OlympusDAO treasury and are not passed on to API consumers.
+    There is no freemium upgrade path, SLA, or paid support tier documented.
+  pricing_model: Free / No cost to consumers
+  billing: None
+  tiers:
+    - name: Free
+      cost: $0
+      features:
+        - Unlimited public read access to all documented endpoints
+        - No API key or account required
+        - Date-range queries up to 366 days (Protocol Metrics API)
+        - One-hour Cloudflare edge cache on data routes
+        - CORS open to all origins
+  notes:
+    - Infrastructure funded by OlympusDAO treasury, not end users.
+    - No commercial SLA or uptime guarantee is published.
+    - Consumers should self-cache to reduce load on the origin.

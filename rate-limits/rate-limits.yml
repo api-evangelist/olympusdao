@@ -1,0 +1,24 @@
+rate_limits:
+  description: >-
+    OlympusDAO does not publish explicit rate limit documentation for its
+    public REST APIs. All three APIs (Protocol Metrics, Circulating Supply,
+    Total Supply) are publicly accessible with no authentication and no
+    documented request quotas. The Protocol Metrics API is fronted by
+    Cloudflare with a one-hour edge cache, meaning repeated identical requests
+    are served from cache and do not reach the origin. WAF rules block
+    non-GET/HEAD/OPTIONS methods and abusive traffic patterns at the Cloudflare
+    layer. The OHM Supply APIs use a one-hour Firestore cache internally,
+    reducing origin load. Consumers should implement their own client-side
+    caching and respect the Cache-Control headers returned by the API.
+  documented: false
+  enforcement: Cloudflare WAF (undocumented thresholds) + origin caching
+  headers:
+    - name: Cache-Control
+      description: >-
+        Data routes return "public, max-age=3600"; /ready and /v2/bounds
+        return "no-store".
+  notes:
+    - The maximum date range per /v2/* request is 366 days (server-enforced).
+    - Cloudflare edge cache serves repeated identical requests without hitting the origin.
+    - OHM Supply APIs cache results in Firestore for one hour per request.
+    - No API key or OAuth flow is required or documented.
