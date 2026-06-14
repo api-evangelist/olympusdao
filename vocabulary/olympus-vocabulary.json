@@ -1,0 +1,107 @@
+{
+  "title": "Olympus Protocol Vocabulary",
+  "description": "Domain vocabulary for OlympusDAO protocol metrics, treasury, and OHM supply concepts.",
+  "version": "1.0.0",
+  "terms": [
+    {
+      "term": "OHM",
+      "definition": "The native reserve currency token of the Olympus protocol, backed by a diversified treasury of on-chain assets.",
+      "category": "Token"
+    },
+    {
+      "term": "gOHM",
+      "definition": "Governance OHM — a wrapped, index-adjusted form of sOHM used for governance and cross-chain staking. gOHM price = OHM price * OHM index.",
+      "category": "Token"
+    },
+    {
+      "term": "sOHM",
+      "definition": "Staked OHM — OHM tokens deposited into the Olympus staking contract. sOHM accrues rebase rewards and is 1:1 redeemable for OHM.",
+      "category": "Token"
+    },
+    {
+      "term": "OHM Index",
+      "definition": "A cumulative multiplier representing total staking rewards accrued since genesis. Used to convert between sOHM and gOHM.",
+      "category": "Metric"
+    },
+    {
+      "term": "OHM APY",
+      "definition": "Annual percentage yield for OHM staking, derived from the rebase rate compounded over one year.",
+      "category": "Metric"
+    },
+    {
+      "term": "Total Supply",
+      "definition": "All OHM tokens minted and in existence across all supported EVM chains.",
+      "category": "Supply"
+    },
+    {
+      "term": "Circulating Supply",
+      "definition": "OHM tokens accessible to the open market — total supply minus OHM held in the Olympus treasury.",
+      "category": "Supply"
+    },
+    {
+      "term": "Floating Supply",
+      "definition": "OHM not owned by the protocol or locked in liquidity pools. A measure of truly freely-traded OHM.",
+      "category": "Supply"
+    },
+    {
+      "term": "Backed Supply",
+      "definition": "OHM tokens backed by liquid treasury assets. Used to compute backing-per-OHM.",
+      "category": "Supply"
+    },
+    {
+      "term": "Liquidity-bound OHM",
+      "definition": "OHM locked in protocol-owned liquidity (POL) pools. Counted in total supply but not floating supply.",
+      "category": "Supply"
+    },
+    {
+      "term": "Lending-bound OHM",
+      "definition": "OHM deposited as collateral in lending protocols. Counted in total supply but not floating supply.",
+      "category": "Supply"
+    },
+    {
+      "term": "Protocol-Owned Liquidity (POL)",
+      "definition": "Liquidity pool positions owned directly by the Olympus treasury, pioneered by OlympusDAO. POL eliminates mercenary liquidity and generates trading fees for the protocol.",
+      "category": "Treasury"
+    },
+    {
+      "term": "Treasury Market Value",
+      "definition": "The total USD value of all assets held in the Olympus treasury, including illiquid and protocol-owned positions.",
+      "category": "Treasury"
+    },
+    {
+      "term": "Treasury Liquid Backing",
+      "definition": "The USD value of liquid, non-OHM treasury assets. Divided by backed supply to compute liquid backing per OHM.",
+      "category": "Treasury"
+    },
+    {
+      "term": "sOHM TVL",
+      "definition": "Total value locked in the Olympus staking contract, denominated in USD.",
+      "category": "Metric"
+    },
+    {
+      "term": "Bond Market",
+      "definition": "The Olympus mechanism by which the protocol sells OHM or LP tokens at a discount in exchange for treasury assets, allowing the protocol to grow its treasury.",
+      "category": "Protocol Mechanism"
+    },
+    {
+      "term": "Rebase",
+      "definition": "A periodic supply adjustment that distributes staking rewards to sOHM holders by increasing the sOHM balance proportionally.",
+      "category": "Protocol Mechanism"
+    },
+    {
+      "term": "Envio HyperIndex",
+      "definition": "The blockchain indexer used by OlympusDAO to index on-chain events and produce 8-hour-cadence metric snapshots stored in an S3-compatible artifact store.",
+      "category": "Infrastructure"
+    },
+    {
+      "term": "Canonical Block Snapshot",
+      "definition": "The specific block number selected as the authoritative daily data point for each chain. Used to ensure consistent cross-chain comparisons.",
+      "category": "Infrastructure"
+    },
+    {
+      "term": "maxRangeDays",
+      "definition": "The maximum number of days that can be queried in a single API request. Default is 366 days.",
+      "category": "API"
+    }
+  ]
+}

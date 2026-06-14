@@ -1,0 +1,10 @@
+{
+  "description": "Example request for daily protocol metrics over a 7-day window",
+  "method": "GET",
+  "url": "https://treasury-subgraph-api.olympusdao.finance/v2/metrics/daily",
+  "queryParameters": {
+    "start": "2026-06-07",
+    "end": "2026-06-14",
+    "includeRecords": false
+  }
+}

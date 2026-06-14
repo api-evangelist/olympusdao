@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://treasury-subgraph-api.olympusdao.finance/schemas/ohm-supply-record",
+  "title": "OhmSupplyRecord",
+  "description": "OHM supply attribution record for a given day. Composes into circulating, floating, and backed supply at the global level.",
+  "type": "object",
+  "properties": {
+    "date": {
+      "type": "string",
+      "format": "date",
+      "description": "UTC calendar date (YYYY-MM-DD)."
+    },
+    "supplyCategory": {
+      "type": "string",
+      "description": "Supply attribution category.",
+      "enum": ["Total Supply", "Treasury", "Liquidity-bound", "Lending-bound"]
+    },
+    "chain": {
+      "type": "string",
+      "description": "EVM chain on which this supply exists.",
+      "enum": ["Ethereum", "Arbitrum", "Base", "Polygon", "Fantom", "Berachain"]
+    },
+    "block": {
+      "type": "integer",
+      "description": "Block number of the canonical daily snapshot."
+    },
+    "balance": {
+      "type": "number",
+      "description": "OHM token balance for this supply category and chain at the snapshot block."
+    },
+    "value": {
+      "type": "number",
+      "description": "USD value of the OHM balance."
+    }
+  },
+  "required": ["date", "supplyCategory", "chain"]
+}

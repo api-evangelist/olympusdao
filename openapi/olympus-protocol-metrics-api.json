@@ -1,0 +1,1035 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Olympus Protocol Metrics API",
+    "version": "2.0.0",
+    "description": "Cacheable REST API for Olympus protocol metrics, treasury assets, and OHM supply. /operations routes are deprecated compatibility routes."
+  },
+  "servers": [
+    {
+      "url": "https://treasury-subgraph-api.olympusdao.finance",
+      "description": "Olympus Protocol Metrics API"
+    }
+  ],
+  "paths": {
+    "/ready": {
+      "get": {
+        "summary": "Readiness probe",
+        "operationId": "getReady",
+        "tags": ["Health"],
+        "responses": {
+          "200": {
+            "description": "API is ready.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "ready"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v2/bounds": {
+      "get": {
+        "summary": "Published date bounds",
+        "operationId": "getBounds",
+        "tags": ["Metadata"],
+        "description": "Returns the earliest and latest available dates in the published artifact store, maximum range window (default 366 days), the active indexer deployment identifier, and per-chain indexing progress (block and date).",
+        "responses": {
+          "200": {
+            "description": "Earliest/latest dates, maximum v2 range, and latest per-chain indexing progress.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "earliestDate": {
+                      "type": "string",
+                      "format": "date"
+                    },
+                    "latestDate": {
+                      "type": "string",
+                      "format": "date"
+                    },
+                    "maxRangeDays": {
+                      "type": "integer"
+                    },
+                    "deploymentId": {
+                      "type": "string"
+                    },
+                    "chains": {
+                      "type": "object",
+                      "additionalProperties": {
+                        "type": "object",
+                        "properties": {
+                          "latestBlock": {
+                            "type": "integer"
+                          },
+                          "latestDate": {
+                            "type": "string",
+                            "format": "date"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v2/metrics/daily": {
+      "get": {
+        "summary": "Daily protocol metrics",
+        "operationId": "getDailyMetrics",
+        "tags": ["Protocol Metrics"],
+        "description": "Returns daily cross-chain rollup metrics for the requested date range: OHM price, gOHM price, OHM APY, OHM index, total supply, circulating supply, floating supply, backed supply, sOHM circulating supply, sOHM TVL, treasury market value, treasury liquid backing, and per-chain block/timestamp snapshots.",
+        "parameters": [
+          {
+            "name": "start",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "Inclusive UTC calendar start date (YYYY-MM-DD)."
+          },
+          {
+            "name": "end",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "Inclusive UTC calendar end date (YYYY-MM-DD). Defaults to the latest published date."
+          },
+          {
+            "name": "includeRecords",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "default": false
+            },
+            "description": "Include metric-specific treasury asset and OHM supply records."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Daily metrics.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/DailyMetric"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid date range.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v2/treasury-assets/daily": {
+      "get": {
+        "summary": "Daily treasury assets",
+        "operationId": "getDailyTreasuryAssets",
+        "tags": ["Treasury"],
+        "description": "Returns individual treasury asset records for the requested date range: token symbol, address, chain, wallet, price, balance, and USD value — one row per (token, wallet, chain, block) combination.",
+        "parameters": [
+          {
+            "name": "start",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "Inclusive UTC calendar start date (YYYY-MM-DD)."
+          },
+          {
+            "name": "end",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "Inclusive UTC calendar end date (YYYY-MM-DD). Defaults to the latest published date."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Treasury assets.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/TreasuryAsset"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid date range.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v2/ohm-supply/daily": {
+      "get": {
+        "summary": "Daily OHM supply",
+        "operationId": "getDailyOhmSupply",
+        "tags": ["OHM Supply"],
+        "description": "Returns OHM supply attribution records for the requested date range: supply category, chain, block, balance, and USD value.",
+        "parameters": [
+          {
+            "name": "start",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "Inclusive UTC calendar start date (YYYY-MM-DD)."
+          },
+          {
+            "name": "end",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "Inclusive UTC calendar end date (YYYY-MM-DD). Defaults to the latest published date."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OHM supply records.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/OhmSupplyRecord"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid date range.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/operations/health": {
+      "get": {
+        "deprecated": true,
+        "summary": "Legacy WunderGraph-compatible health response.",
+        "operationId": "getLegacyHealth",
+        "tags": ["Legacy"],
+        "parameters": [
+          {
+            "name": "wg_variables",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "description": "JSON-encoded legacy WunderGraph variables."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Legacy WunderGraph-compatible response.",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request.",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/operations/latest/metrics": {
+      "get": {
+        "deprecated": true,
+        "summary": "Latest protocol metrics.",
+        "operationId": "getLatestMetrics",
+        "tags": ["Legacy"],
+        "parameters": [
+          {
+            "name": "wg_variables",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "description": "JSON-encoded legacy WunderGraph variables."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Legacy WunderGraph-compatible response.",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request.",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/operations/earliest/metrics": {
+      "get": {
+        "deprecated": true,
+        "summary": "Earliest protocol metrics.",
+        "operationId": "getEarliestMetrics",
+        "tags": ["Legacy"],
+        "parameters": [
+          {
+            "name": "wg_variables",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "description": "JSON-encoded legacy WunderGraph variables."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Legacy WunderGraph-compatible response.",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request.",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/operations/paginated/metrics": {
+      "get": {
+        "deprecated": true,
+        "summary": "Daily protocol metrics from a start date to optional end date.",
+        "operationId": "getPaginatedMetrics",
+        "tags": ["Legacy"],
+        "parameters": [
+          {
+            "name": "wg_variables",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "description": "JSON-encoded legacy WunderGraph variables."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Legacy WunderGraph-compatible response.",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request.",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/operations/latest/tokenRecords": {
+      "get": {
+        "deprecated": true,
+        "summary": "Latest treasury assets using the legacy tokenRecords shape.",
+        "operationId": "getLatestTokenRecords",
+        "tags": ["Legacy"],
+        "parameters": [
+          {
+            "name": "wg_variables",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "description": "JSON-encoded legacy WunderGraph variables."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Legacy WunderGraph-compatible response.",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request.",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/operations/earliest/tokenRecords": {
+      "get": {
+        "deprecated": true,
+        "summary": "Earliest treasury assets using the legacy tokenRecords shape.",
+        "operationId": "getEarliestTokenRecords",
+        "tags": ["Legacy"],
+        "parameters": [
+          {
+            "name": "wg_variables",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "description": "JSON-encoded legacy WunderGraph variables."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Legacy WunderGraph-compatible response.",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request.",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/operations/paginated/tokenRecords": {
+      "get": {
+        "deprecated": true,
+        "summary": "Treasury assets using the legacy tokenRecords shape.",
+        "operationId": "getPaginatedTokenRecords",
+        "tags": ["Legacy"],
+        "parameters": [
+          {
+            "name": "wg_variables",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "description": "JSON-encoded legacy WunderGraph variables."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Legacy WunderGraph-compatible response.",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request.",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/operations/latest/tokenSupplies": {
+      "get": {
+        "deprecated": true,
+        "summary": "Latest OHM supply using the legacy tokenSupplies shape.",
+        "operationId": "getLatestTokenSupplies",
+        "tags": ["Legacy"],
+        "parameters": [
+          {
+            "name": "wg_variables",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "description": "JSON-encoded legacy WunderGraph variables."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Legacy WunderGraph-compatible response.",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request.",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/operations/earliest/tokenSupplies": {
+      "get": {
+        "deprecated": true,
+        "summary": "Earliest OHM supply using the legacy tokenSupplies shape.",
+        "operationId": "getEarliestTokenSupplies",
+        "tags": ["Legacy"],
+        "parameters": [
+          {
+            "name": "wg_variables",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "description": "JSON-encoded legacy WunderGraph variables."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Legacy WunderGraph-compatible response.",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request.",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/operations/paginated/tokenSupplies": {
+      "get": {
+        "deprecated": true,
+        "summary": "OHM supply using the legacy tokenSupplies shape.",
+        "operationId": "getPaginatedTokenSupplies",
+        "tags": ["Legacy"],
+        "parameters": [
+          {
+            "name": "wg_variables",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "description": "JSON-encoded legacy WunderGraph variables."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Legacy WunderGraph-compatible response.",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request.",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/operations/latest/protocolMetrics": {
+      "get": {
+        "deprecated": true,
+        "summary": "Latest protocol metrics using the legacy protocolMetrics alias.",
+        "operationId": "getLatestProtocolMetrics",
+        "tags": ["Legacy"],
+        "parameters": [
+          {
+            "name": "wg_variables",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "description": "JSON-encoded legacy WunderGraph variables."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Legacy WunderGraph-compatible response.",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request.",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/operations/earliest/protocolMetrics": {
+      "get": {
+        "deprecated": true,
+        "summary": "Earliest protocol metrics using the legacy protocolMetrics alias.",
+        "operationId": "getEarliestProtocolMetrics",
+        "tags": ["Legacy"],
+        "parameters": [
+          {
+            "name": "wg_variables",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "description": "JSON-encoded legacy WunderGraph variables."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Legacy WunderGraph-compatible response.",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request.",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/operations/paginated/protocolMetrics": {
+      "get": {
+        "deprecated": true,
+        "summary": "Protocol metrics from a start date to optional end date using the legacy protocolMetrics alias.",
+        "operationId": "getPaginatedProtocolMetrics",
+        "tags": ["Legacy"],
+        "parameters": [
+          {
+            "name": "wg_variables",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "description": "JSON-encoded legacy WunderGraph variables."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Legacy WunderGraph-compatible response.",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request.",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/operations/atBlock/metrics": {
+      "get": {
+        "deprecated": true,
+        "summary": "Deprecated atBlock metrics placeholder.",
+        "operationId": "getAtBlockMetrics",
+        "tags": ["Legacy"],
+        "parameters": [
+          {
+            "name": "wg_variables",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "description": "JSON-encoded legacy WunderGraph variables."
+          }
+        ],
+        "responses": {
+          "501": {
+            "description": "atBlock queries are not supported by the artifact-backed API."
+          }
+        }
+      }
+    },
+    "/operations/atBlock/tokenRecords": {
+      "get": {
+        "deprecated": true,
+        "summary": "Deprecated atBlock tokenRecords placeholder.",
+        "operationId": "getAtBlockTokenRecords",
+        "tags": ["Legacy"],
+        "parameters": [
+          {
+            "name": "wg_variables",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "description": "JSON-encoded legacy WunderGraph variables."
+          }
+        ],
+        "responses": {
+          "501": {
+            "description": "atBlock queries are not supported by the artifact-backed API."
+          }
+        }
+      }
+    },
+    "/operations/atBlock/tokenSupplies": {
+      "get": {
+        "deprecated": true,
+        "summary": "Deprecated atBlock tokenSupplies placeholder.",
+        "operationId": "getAtBlockTokenSupplies",
+        "tags": ["Legacy"],
+        "parameters": [
+          {
+            "name": "wg_variables",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "description": "JSON-encoded legacy WunderGraph variables."
+          }
+        ],
+        "responses": {
+          "501": {
+            "description": "atBlock queries are not supported by the artifact-backed API."
+          }
+        }
+      }
+    },
+    "/operations/atBlock/internal/protocolMetrics": {
+      "get": {
+        "deprecated": true,
+        "summary": "Deprecated atBlock protocolMetrics placeholder.",
+        "operationId": "getAtBlockInternalProtocolMetrics",
+        "tags": ["Legacy"],
+        "parameters": [
+          {
+            "name": "wg_variables",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "description": "JSON-encoded legacy WunderGraph variables."
+          }
+        ],
+        "responses": {
+          "501": {
+            "description": "atBlock queries are not supported by the artifact-backed API."
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "DailyMetric": {
+        "type": "object",
+        "description": "Daily cross-chain rollup protocol metric snapshot.",
+        "properties": {
+          "date": {
+            "type": "string",
+            "format": "date",
+            "description": "UTC calendar date for this metric snapshot."
+          },
+          "ohmPrice": {
+            "type": "number",
+            "format": "double",
+            "description": "OHM price in USD."
+          },
+          "gOhmPrice": {
+            "type": "number",
+            "format": "double",
+            "description": "gOHM price in USD."
+          },
+          "ohmApy": {
+            "type": "number",
+            "format": "double",
+            "description": "OHM annual percentage yield."
+          },
+          "ohmIndex": {
+            "type": "number",
+            "format": "double",
+            "description": "OHM index value."
+          },
+          "totalSupply": {
+            "type": "number",
+            "format": "double",
+            "description": "Total OHM supply."
+          },
+          "circulatingSupply": {
+            "type": "number",
+            "format": "double",
+            "description": "OHM circulating supply."
+          },
+          "floatingSupply": {
+            "type": "number",
+            "format": "double",
+            "description": "OHM floating supply (excluding protocol-owned)."
+          },
+          "backedSupply": {
+            "type": "number",
+            "format": "double",
+            "description": "OHM backed supply."
+          },
+          "sOhmCirculatingSupply": {
+            "type": "number",
+            "format": "double",
+            "description": "sOHM circulating supply."
+          },
+          "sOhmTvl": {
+            "type": "number",
+            "format": "double",
+            "description": "sOHM total value locked in USD."
+          },
+          "treasuryMarketValue": {
+            "type": "number",
+            "format": "double",
+            "description": "Treasury total market value in USD."
+          },
+          "treasuryLiquidBacking": {
+            "type": "number",
+            "format": "double",
+            "description": "Treasury liquid backing value in USD."
+          }
+        }
+      },
+      "TreasuryAsset": {
+        "type": "object",
+        "description": "Individual treasury asset record for a given day.",
+        "properties": {
+          "date": {
+            "type": "string",
+            "format": "date",
+            "description": "UTC calendar date."
+          },
+          "tokenSymbol": {
+            "type": "string",
+            "description": "Token symbol (e.g. DAI, WETH)."
+          },
+          "tokenAddress": {
+            "type": "string",
+            "description": "Token contract address."
+          },
+          "chain": {
+            "type": "string",
+            "description": "EVM chain name (e.g. Ethereum, Arbitrum, Base).",
+            "enum": ["Ethereum", "Arbitrum", "Base", "Polygon", "Fantom", "Berachain"]
+          },
+          "wallet": {
+            "type": "string",
+            "description": "Treasury wallet address holding the asset."
+          },
+          "price": {
+            "type": "number",
+            "format": "double",
+            "description": "Token price in USD at snapshot block."
+          },
+          "balance": {
+            "type": "number",
+            "format": "double",
+            "description": "Token balance at snapshot block."
+          },
+          "value": {
+            "type": "number",
+            "format": "double",
+            "description": "USD value of the balance at snapshot block."
+          },
+          "block": {
+            "type": "integer",
+            "description": "Block number of the canonical snapshot."
+          }
+        }
+      },
+      "OhmSupplyRecord": {
+        "type": "object",
+        "description": "OHM supply attribution record for a given day.",
+        "properties": {
+          "date": {
+            "type": "string",
+            "format": "date",
+            "description": "UTC calendar date."
+          },
+          "supplyCategory": {
+            "type": "string",
+            "description": "Supply category label.",
+            "enum": ["Total Supply", "Treasury", "Liquidity-bound", "Lending-bound"]
+          },
+          "chain": {
+            "type": "string",
+            "description": "EVM chain name.",
+            "enum": ["Ethereum", "Arbitrum", "Base", "Polygon", "Fantom", "Berachain"]
+          },
+          "block": {
+            "type": "integer",
+            "description": "Block number of the snapshot."
+          },
+          "balance": {
+            "type": "number",
+            "format": "double",
+            "description": "OHM balance for this supply category and chain."
+          },
+          "value": {
+            "type": "number",
+            "format": "double",
+            "description": "USD value of the OHM balance."
+          }
+        }
+      },
+      "Error": {
+        "type": "object",
+        "description": "Error response.",
+        "properties": {
+          "error": {
+            "type": "string",
+            "description": "Human-readable error message."
+          }
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Health",
+      "description": "API health and readiness endpoints."
+    },
+    {
+      "name": "Metadata",
+      "description": "Date bounds and indexer metadata."
+    },
+    {
+      "name": "Protocol Metrics",
+      "description": "Daily cross-chain OHM protocol metrics."
+    },
+    {
+      "name": "Treasury",
+      "description": "Daily treasury asset holdings."
+    },
+    {
+      "name": "OHM Supply",
+      "description": "Daily OHM supply attribution records."
+    },
+    {
+      "name": "Legacy",
+      "description": "Deprecated WunderGraph-compatible /operations routes."
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "description": "Example response for GET /v2/treasury-assets/daily",
+  "data": [
+    {
+      "date": "2026-06-14",
+      "tokenSymbol": "DAI",
+      "tokenAddress": "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+      "chain": "Ethereum",
+      "wallet": "0x9A315BdF513367C0377FB36545857d12e85813Ef",
+      "price": 1.0,
+      "balance": 45000000,
+      "value": 45000000,
+      "block": 22890123,
+      "isLiquid": true
+    },
+    {
+      "date": "2026-06-14",
+      "tokenSymbol": "WETH",
+      "tokenAddress": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+      "chain": "Ethereum",
+      "wallet": "0x9A315BdF513367C0377FB36545857d12e85813Ef",
+      "price": 3240.50,
+      "balance": 8200.75,
+      "value": 26572610.375,
+      "block": 22890123,
+      "isLiquid": true
+    },
+    {
+      "date": "2026-06-14",
+      "tokenSymbol": "OHM",
+      "tokenAddress": "0x64aa3364F17a4D01c6f1751Fd97C2BD3D7e7f1D5",
+      "chain": "Ethereum",
+      "wallet": "0x9A315BdF513367C0377FB36545857d12e85813Ef",
+      "price": 11.42,
+      "balance": 2100000,
+      "value": 23982000,
+      "block": 22890123,
+      "isLiquid": false
+    }
+  ]
+}

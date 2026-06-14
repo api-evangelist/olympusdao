@@ -1,0 +1,34 @@
+{
+  "description": "Example response for GET /v2/metrics/daily",
+  "data": [
+    {
+      "date": "2026-06-14",
+      "ohmPrice": 11.42,
+      "gOhmPrice": 398.75,
+      "ohmApy": 0.0312,
+      "ohmIndex": 34.91,
+      "totalSupply": 12500000,
+      "circulatingSupply": 9800000,
+      "floatingSupply": 6200000,
+      "backedSupply": 7400000,
+      "sOhmCirculatingSupply": 3600000,
+      "sOhmTvl": 41112000,
+      "treasuryMarketValue": 298000000,
+      "treasuryLiquidBacking": 185000000,
+      "chains": {
+        "Ethereum": {
+          "block": 22890123,
+          "timestamp": 1749859200
+        },
+        "Arbitrum": {
+          "block": 318456789,
+          "timestamp": 1749859200
+        },
+        "Base": {
+          "block": 29012345,
+          "timestamp": 1749859200
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,96 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "olympus": "https://www.olympusdao.finance/vocab#",
+    "dcat": "https://www.w3.org/ns/dcat#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@type": "Organization",
+  "@id": "https://www.olympusdao.finance/",
+  "name": "OlympusDAO",
+  "description": "OlympusDAO is a decentralized reserve currency protocol built on Ethereum that pioneered protocol-owned liquidity (POL). The Olympus protocol issues OHM, a crypto-native reserve currency backed by a diversified treasury of on-chain assets.",
+  "url": "https://www.olympusdao.finance/",
+  "image": "https://www.olympusdao.finance/images/og-image.png",
+  "sameAs": [
+    "https://twitter.com/OlympusDAO",
+    "https://github.com/OlympusDAO"
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "OlympusDAO APIs",
+    "itemListElement": [
+      {
+        "@type": "WebAPI",
+        "@id": "https://treasury-subgraph-api.olympusdao.finance/",
+        "name": "Olympus Protocol Metrics API",
+        "description": "Cacheable REST API serving daily protocol metrics, treasury asset records, and OHM supply data for the Olympus protocol across six EVM chains.",
+        "url": "https://docs.olympusdao.finance/",
+        "documentation": "https://docs.olympusdao.finance/",
+        "termsOfService": "https://www.olympusdao.finance/",
+        "dcterms:identifier": "olympus-protocol-metrics-api",
+        "dcat:endpointURL": "https://treasury-subgraph-api.olympusdao.finance",
+        "dcat:servesDataset": [
+          {
+            "@type": "dcat:Dataset",
+            "name": "Daily Protocol Metrics",
+            "description": "Daily cross-chain rollup metrics: OHM price, APY, index, supply figures, and treasury values.",
+            "dcat:distribution": {
+              "@type": "dcat:Distribution",
+              "dcat:accessURL": "https://treasury-subgraph-api.olympusdao.finance/v2/metrics/daily",
+              "dcterms:format": "application/json"
+            }
+          },
+          {
+            "@type": "dcat:Dataset",
+            "name": "Daily Treasury Assets",
+            "description": "Individual treasury asset records per token, wallet, and chain.",
+            "dcat:distribution": {
+              "@type": "dcat:Distribution",
+              "dcat:accessURL": "https://treasury-subgraph-api.olympusdao.finance/v2/treasury-assets/daily",
+              "dcterms:format": "application/json"
+            }
+          },
+          {
+            "@type": "dcat:Dataset",
+            "name": "Daily OHM Supply",
+            "description": "OHM supply attribution records by category and chain.",
+            "dcat:distribution": {
+              "@type": "dcat:Distribution",
+              "dcat:accessURL": "https://treasury-subgraph-api.olympusdao.finance/v2/ohm-supply/daily",
+              "dcterms:format": "application/json"
+            }
+          }
+        ]
+      },
+      {
+        "@type": "WebAPI",
+        "@id": "https://circulating-supply.api.olympusdao.finance/",
+        "name": "Olympus OHM Circulating Supply API",
+        "description": "Serverless GCP Cloud Function returning the current OHM circulating supply as a plain-text numeric string, backed by a one-hour Firestore cache. Used by CoinGecko.",
+        "url": "https://github.com/OlympusDAO/coingecko-api",
+        "dcterms:identifier": "olympus-circulating-supply-api",
+        "dcat:endpointURL": "https://circulating-supply.api.olympusdao.finance"
+      },
+      {
+        "@type": "WebAPI",
+        "@id": "https://total-supply.api.olympusdao.finance/",
+        "name": "Olympus OHM Total Supply API",
+        "description": "Serverless GCP Cloud Function returning the current OHM total supply as a plain-text numeric string, backed by a one-hour Firestore cache. Used by CoinGecko.",
+        "url": "https://github.com/OlympusDAO/coingecko-api",
+        "dcterms:identifier": "olympus-total-supply-api",
+        "dcat:endpointURL": "https://total-supply.api.olympusdao.finance"
+      }
+    ]
+  },
+  "olympus:supportsChains": [
+    "Ethereum",
+    "Arbitrum",
+    "Base",
+    "Polygon",
+    "Fantom",
+    "Berachain"
+  ],
+  "olympus:nativeToken": "OHM",
+  "olympus:openAPISpec": "https://treasury-subgraph-api.olympusdao.finance/openapi.json"
+}

@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://treasury-subgraph-api.olympusdao.finance/schemas/daily-metric",
+  "title": "DailyMetric",
+  "description": "Daily cross-chain rollup protocol metric snapshot for the Olympus protocol.",
+  "type": "object",
+  "properties": {
+    "date": {
+      "type": "string",
+      "format": "date",
+      "description": "UTC calendar date for this metric snapshot (YYYY-MM-DD)."
+    },
+    "ohmPrice": {
+      "type": "number",
+      "description": "OHM price in USD."
+    },
+    "gOhmPrice": {
+      "type": "number",
+      "description": "gOHM price in USD."
+    },
+    "ohmApy": {
+      "type": "number",
+      "description": "OHM annual percentage yield."
+    },
+    "ohmIndex": {
+      "type": "number",
+      "description": "OHM index value representing cumulative staking rewards."
+    },
+    "totalSupply": {
+      "type": "number",
+      "description": "Total OHM supply across all chains."
+    },
+    "circulatingSupply": {
+      "type": "number",
+      "description": "OHM circulating supply."
+    },
+    "floatingSupply": {
+      "type": "number",
+      "description": "OHM floating supply (excluding protocol-owned OHM)."
+    },
+    "backedSupply": {
+      "type": "number",
+      "description": "OHM backed supply (treasury backing)."
+    },
+    "sOhmCirculatingSupply": {
+      "type": "number",
+      "description": "sOHM (staked OHM) circulating supply."
+    },
+    "sOhmTvl": {
+      "type": "number",
+      "description": "sOHM total value locked in USD."
+    },
+    "treasuryMarketValue": {
+      "type": "number",
+      "description": "Treasury total market value in USD."
+    },
+    "treasuryLiquidBacking": {
+      "type": "number",
+      "description": "Treasury liquid backing value in USD (excludes illiquid assets)."
+    },
+    "chains": {
+      "type": "object",
+      "description": "Per-chain block and timestamp snapshots.",
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "block": {
+            "type": "integer",
+            "description": "Block number used as the canonical snapshot."
+          },
+          "timestamp": {
+            "type": "integer",
+            "description": "Unix timestamp of the snapshot block."
+          }
+        }
+      }
+    }
+  },
+  "required": ["date"]
+}

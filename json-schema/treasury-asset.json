@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://treasury-subgraph-api.olympusdao.finance/schemas/treasury-asset",
+  "title": "TreasuryAsset",
+  "description": "Individual treasury asset record for a given day — one row per (token, wallet, chain, block) combination.",
+  "type": "object",
+  "properties": {
+    "date": {
+      "type": "string",
+      "format": "date",
+      "description": "UTC calendar date (YYYY-MM-DD)."
+    },
+    "tokenSymbol": {
+      "type": "string",
+      "description": "Token symbol (e.g. DAI, WETH, OHM)."
+    },
+    "tokenAddress": {
+      "type": "string",
+      "description": "Token contract address (checksummed EIP-55)."
+    },
+    "chain": {
+      "type": "string",
+      "description": "EVM chain on which the asset is held.",
+      "enum": ["Ethereum", "Arbitrum", "Base", "Polygon", "Fantom", "Berachain"]
+    },
+    "wallet": {
+      "type": "string",
+      "description": "Treasury wallet or contract address holding the asset."
+    },
+    "price": {
+      "type": "number",
+      "description": "Token price in USD at the snapshot block."
+    },
+    "balance": {
+      "type": "number",
+      "description": "Token balance at the snapshot block."
+    },
+    "value": {
+      "type": "number",
+      "description": "USD value of the balance at the snapshot block (price * balance)."
+    },
+    "block": {
+      "type": "integer",
+      "description": "Block number of the canonical daily snapshot."
+    },
+    "isLiquid": {
+      "type": "boolean",
+      "description": "Whether the asset is considered liquid for treasury liquid-backing calculations."
+    }
+  },
+  "required": ["date", "tokenSymbol", "chain", "wallet"]
+}
