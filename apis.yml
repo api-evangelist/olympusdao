@@ -259,3 +259,8 @@ maintainers:
   - FN: OlympusDAO
     X-twitter: OlympusDAO
     url: https://www.olympusdao.finance/
+common:
+  - type: DomainSecurity
+    url: security/olympusdao-domain-security.yml
+  - url: https://olympusdao.medium.com/feed
+    type: Blog
