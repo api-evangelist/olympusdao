@@ -260,6 +260,8 @@ maintainers:
     X-twitter: OlympusDAO
     url: https://www.olympusdao.finance/
 common:
+  - type: AgenticAccess
+    url: agentic-access/olympusdao-agentic-access.yml
   - type: DomainSecurity
     url: security/olympusdao-domain-security.yml
   - url: https://olympusdao.medium.com/feed
