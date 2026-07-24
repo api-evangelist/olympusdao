@@ -1,0 +1,388 @@
+openapi: 3.1.0
+info:
+  title: Olympus Protocol Metrics Health Legacy API
+  version: 2.0.0
+  description: Cacheable REST API for Olympus protocol metrics, treasury assets, and OHM supply. /operations routes are deprecated compatibility routes.
+servers:
+- url: https://treasury-subgraph-api.olympusdao.finance
+  description: Olympus Protocol Metrics API
+tags:
+- name: Legacy
+  description: Deprecated WunderGraph-compatible /operations routes.
+paths:
+  /operations/health:
+    get:
+      deprecated: true
+      summary: Legacy WunderGraph-compatible health response.
+      operationId: getLegacyHealth
+      tags:
+      - Legacy
+      parameters:
+      - name: wg_variables
+        in: query
+        schema:
+          type: string
+        description: JSON-encoded legacy WunderGraph variables.
+      responses:
+        '200':
+          description: Legacy WunderGraph-compatible response.
+          content:
+            application/json:
+              schema: {}
+        '400':
+          description: Invalid request.
+          content:
+            application/json:
+              schema: {}
+  /operations/latest/metrics:
+    get:
+      deprecated: true
+      summary: Latest protocol metrics.
+      operationId: getLatestMetrics
+      tags:
+      - Legacy
+      parameters:
+      - name: wg_variables
+        in: query
+        schema:
+          type: string
+        description: JSON-encoded legacy WunderGraph variables.
+      responses:
+        '200':
+          description: Legacy WunderGraph-compatible response.
+          content:
+            application/json:
+              schema: {}
+        '400':
+          description: Invalid request.
+          content:
+            application/json:
+              schema: {}
+  /operations/earliest/metrics:
+    get:
+      deprecated: true
+      summary: Earliest protocol metrics.
+      operationId: getEarliestMetrics
+      tags:
+      - Legacy
+      parameters:
+      - name: wg_variables
+        in: query
+        schema:
+          type: string
+        description: JSON-encoded legacy WunderGraph variables.
+      responses:
+        '200':
+          description: Legacy WunderGraph-compatible response.
+          content:
+            application/json:
+              schema: {}
+        '400':
+          description: Invalid request.
+          content:
+            application/json:
+              schema: {}
+  /operations/paginated/metrics:
+    get:
+      deprecated: true
+      summary: Daily protocol metrics from a start date to optional end date.
+      operationId: getPaginatedMetrics
+      tags:
+      - Legacy
+      parameters:
+      - name: wg_variables
+        in: query
+        schema:
+          type: string
+        description: JSON-encoded legacy WunderGraph variables.
+      responses:
+        '200':
+          description: Legacy WunderGraph-compatible response.
+          content:
+            application/json:
+              schema: {}
+        '400':
+          description: Invalid request.
+          content:
+            application/json:
+              schema: {}
+  /operations/latest/tokenRecords:
+    get:
+      deprecated: true
+      summary: Latest treasury assets using the legacy tokenRecords shape.
+      operationId: getLatestTokenRecords
+      tags:
+      - Legacy
+      parameters:
+      - name: wg_variables
+        in: query
+        schema:
+          type: string
+        description: JSON-encoded legacy WunderGraph variables.
+      responses:
+        '200':
+          description: Legacy WunderGraph-compatible response.
+          content:
+            application/json:
+              schema: {}
+        '400':
+          description: Invalid request.
+          content:
+            application/json:
+              schema: {}
+  /operations/earliest/tokenRecords:
+    get:
+      deprecated: true
+      summary: Earliest treasury assets using the legacy tokenRecords shape.
+      operationId: getEarliestTokenRecords
+      tags:
+      - Legacy
+      parameters:
+      - name: wg_variables
+        in: query
+        schema:
+          type: string
+        description: JSON-encoded legacy WunderGraph variables.
+      responses:
+        '200':
+          description: Legacy WunderGraph-compatible response.
+          content:
+            application/json:
+              schema: {}
+        '400':
+          description: Invalid request.
+          content:
+            application/json:
+              schema: {}
+  /operations/paginated/tokenRecords:
+    get:
+      deprecated: true
+      summary: Treasury assets using the legacy tokenRecords shape.
+      operationId: getPaginatedTokenRecords
+      tags:
+      - Legacy
+      parameters:
+      - name: wg_variables
+        in: query
+        schema:
+          type: string
+        description: JSON-encoded legacy WunderGraph variables.
+      responses:
+        '200':
+          description: Legacy WunderGraph-compatible response.
+          content:
+            application/json:
+              schema: {}
+        '400':
+          description: Invalid request.
+          content:
+            application/json:
+              schema: {}
+  /operations/latest/tokenSupplies:
+    get:
+      deprecated: true
+      summary: Latest OHM supply using the legacy tokenSupplies shape.
+      operationId: getLatestTokenSupplies
+      tags:
+      - Legacy
+      parameters:
+      - name: wg_variables
+        in: query
+        schema:
+          type: string
+        description: JSON-encoded legacy WunderGraph variables.
+      responses:
+        '200':
+          description: Legacy WunderGraph-compatible response.
+          content:
+            application/json:
+              schema: {}
+        '400':
+          description: Invalid request.
+          content:
+            application/json:
+              schema: {}
+  /operations/earliest/tokenSupplies:
+    get:
+      deprecated: true
+      summary: Earliest OHM supply using the legacy tokenSupplies shape.
+      operationId: getEarliestTokenSupplies
+      tags:
+      - Legacy
+      parameters:
+      - name: wg_variables
+        in: query
+        schema:
+          type: string
+        description: JSON-encoded legacy WunderGraph variables.
+      responses:
+        '200':
+          description: Legacy WunderGraph-compatible response.
+          content:
+            application/json:
+              schema: {}
+        '400':
+          description: Invalid request.
+          content:
+            application/json:
+              schema: {}
+  /operations/paginated/tokenSupplies:
+    get:
+      deprecated: true
+      summary: OHM supply using the legacy tokenSupplies shape.
+      operationId: getPaginatedTokenSupplies
+      tags:
+      - Legacy
+      parameters:
+      - name: wg_variables
+        in: query
+        schema:
+          type: string
+        description: JSON-encoded legacy WunderGraph variables.
+      responses:
+        '200':
+          description: Legacy WunderGraph-compatible response.
+          content:
+            application/json:
+              schema: {}
+        '400':
+          description: Invalid request.
+          content:
+            application/json:
+              schema: {}
+  /operations/latest/protocolMetrics:
+    get:
+      deprecated: true
+      summary: Latest protocol metrics using the legacy protocolMetrics alias.
+      operationId: getLatestProtocolMetrics
+      tags:
+      - Legacy
+      parameters:
+      - name: wg_variables
+        in: query
+        schema:
+          type: string
+        description: JSON-encoded legacy WunderGraph variables.
+      responses:
+        '200':
+          description: Legacy WunderGraph-compatible response.
+          content:
+            application/json:
+              schema: {}
+        '400':
+          description: Invalid request.
+          content:
+            application/json:
+              schema: {}
+  /operations/earliest/protocolMetrics:
+    get:
+      deprecated: true
+      summary: Earliest protocol metrics using the legacy protocolMetrics alias.
+      operationId: getEarliestProtocolMetrics
+      tags:
+      - Legacy
+      parameters:
+      - name: wg_variables
+        in: query
+        schema:
+          type: string
+        description: JSON-encoded legacy WunderGraph variables.
+      responses:
+        '200':
+          description: Legacy WunderGraph-compatible response.
+          content:
+            application/json:
+              schema: {}
+        '400':
+          description: Invalid request.
+          content:
+            application/json:
+              schema: {}
+  /operations/paginated/protocolMetrics:
+    get:
+      deprecated: true
+      summary: Protocol metrics from a start date to optional end date using the legacy protocolMetrics alias.
+      operationId: getPaginatedProtocolMetrics
+      tags:
+      - Legacy
+      parameters:
+      - name: wg_variables
+        in: query
+        schema:
+          type: string
+        description: JSON-encoded legacy WunderGraph variables.
+      responses:
+        '200':
+          description: Legacy WunderGraph-compatible response.
+          content:
+            application/json:
+              schema: {}
+        '400':
+          description: Invalid request.
+          content:
+            application/json:
+              schema: {}
+  /operations/atBlock/metrics:
+    get:
+      deprecated: true
+      summary: Deprecated atBlock metrics placeholder.
+      operationId: getAtBlockMetrics
+      tags:
+      - Legacy
+      parameters:
+      - name: wg_variables
+        in: query
+        schema:
+          type: string
+        description: JSON-encoded legacy WunderGraph variables.
+      responses:
+        '501':
+          description: atBlock queries are not supported by the artifact-backed API.
+  /operations/atBlock/tokenRecords:
+    get:
+      deprecated: true
+      summary: Deprecated atBlock tokenRecords placeholder.
+      operationId: getAtBlockTokenRecords
+      tags:
+      - Legacy
+      parameters:
+      - name: wg_variables
+        in: query
+        schema:
+          type: string
+        description: JSON-encoded legacy WunderGraph variables.
+      responses:
+        '501':
+          description: atBlock queries are not supported by the artifact-backed API.
+  /operations/atBlock/tokenSupplies:
+    get:
+      deprecated: true
+      summary: Deprecated atBlock tokenSupplies placeholder.
+      operationId: getAtBlockTokenSupplies
+      tags:
+      - Legacy
+      parameters:
+      - name: wg_variables
+        in: query
+        schema:
+          type: string
+        description: JSON-encoded legacy WunderGraph variables.
+      responses:
+        '501':
+          description: atBlock queries are not supported by the artifact-backed API.
+  /operations/atBlock/internal/protocolMetrics:
+    get:
+      deprecated: true
+      summary: Deprecated atBlock protocolMetrics placeholder.
+      operationId: getAtBlockInternalProtocolMetrics
+      tags:
+      - Legacy
+      parameters:
+      - name: wg_variables
+        in: query
+        schema:
+          type: string
+        description: JSON-encoded legacy WunderGraph variables.
+      responses:
+        '501':
+          description: atBlock queries are not supported by the artifact-backed API.

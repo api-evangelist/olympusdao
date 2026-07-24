@@ -1,0 +1,29 @@
+openapi: 3.1.0
+info:
+  title: Olympus Protocol Metrics Health API
+  version: 2.0.0
+  description: Cacheable REST API for Olympus protocol metrics, treasury assets, and OHM supply. /operations routes are deprecated compatibility routes.
+servers:
+- url: https://treasury-subgraph-api.olympusdao.finance
+  description: Olympus Protocol Metrics API
+tags:
+- name: Health
+  description: API health and readiness endpoints.
+paths:
+  /ready:
+    get:
+      summary: Readiness probe
+      operationId: getReady
+      tags:
+      - Health
+      responses:
+        '200':
+          description: API is ready.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: ready

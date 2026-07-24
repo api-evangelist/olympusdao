@@ -1,0 +1,103 @@
+openapi: 3.1.0
+info:
+  title: Olympus Protocol Metrics Health Treasury API
+  version: 2.0.0
+  description: Cacheable REST API for Olympus protocol metrics, treasury assets, and OHM supply. /operations routes are deprecated compatibility routes.
+servers:
+- url: https://treasury-subgraph-api.olympusdao.finance
+  description: Olympus Protocol Metrics API
+tags:
+- name: Treasury
+  description: Daily treasury asset holdings.
+paths:
+  /v2/treasury-assets/daily:
+    get:
+      summary: Daily treasury assets
+      operationId: getDailyTreasuryAssets
+      tags:
+      - Treasury
+      description: 'Returns individual treasury asset records for the requested date range: token symbol, address, chain, wallet, price, balance, and USD value — one row per (token, wallet, chain, block) combination.'
+      parameters:
+      - name: start
+        in: query
+        required: true
+        schema:
+          type: string
+          format: date
+        description: Inclusive UTC calendar start date (YYYY-MM-DD).
+      - name: end
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date
+        description: Inclusive UTC calendar end date (YYYY-MM-DD). Defaults to the latest published date.
+      responses:
+        '200':
+          description: Treasury assets.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/TreasuryAsset'
+        '400':
+          description: Invalid date range.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+components:
+  schemas:
+    TreasuryAsset:
+      type: object
+      description: Individual treasury asset record for a given day.
+      properties:
+        date:
+          type: string
+          format: date
+          description: UTC calendar date.
+        tokenSymbol:
+          type: string
+          description: Token symbol (e.g. DAI, WETH).
+        tokenAddress:
+          type: string
+          description: Token contract address.
+        chain:
+          type: string
+          description: EVM chain name (e.g. Ethereum, Arbitrum, Base).
+          enum:
+          - Ethereum
+          - Arbitrum
+          - Base
+          - Polygon
+          - Fantom
+          - Berachain
+        wallet:
+          type: string
+          description: Treasury wallet address holding the asset.
+        price:
+          type: number
+          format: double
+          description: Token price in USD at snapshot block.
+        balance:
+          type: number
+          format: double
+          description: Token balance at snapshot block.
+        value:
+          type: number
+          format: double
+          description: USD value of the balance at snapshot block.
+        block:
+          type: integer
+          description: Block number of the canonical snapshot.
+    Error:
+      type: object
+      description: Error response.
+      properties:
+        error:
+          type: string
+          description: Human-readable error message.

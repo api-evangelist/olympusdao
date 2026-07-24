@@ -1,0 +1,124 @@
+openapi: 3.1.0
+info:
+  title: Olympus Health Protocol Metrics API
+  version: 2.0.0
+  description: Cacheable REST API for Olympus protocol metrics, treasury assets, and OHM supply. /operations routes are deprecated compatibility routes.
+servers:
+- url: https://treasury-subgraph-api.olympusdao.finance
+  description: Olympus Protocol Metrics API
+tags:
+- name: Protocol Metrics
+  description: Daily cross-chain OHM protocol metrics.
+paths:
+  /v2/metrics/daily:
+    get:
+      summary: Daily protocol metrics
+      operationId: getDailyMetrics
+      tags:
+      - Protocol Metrics
+      description: 'Returns daily cross-chain rollup metrics for the requested date range: OHM price, gOHM price, OHM APY, OHM index, total supply, circulating supply, floating supply, backed supply, sOHM circulating supply, sOHM TVL, treasury market value, treasury liquid backing, and per-chain block/timestamp snapshots.'
+      parameters:
+      - name: start
+        in: query
+        required: true
+        schema:
+          type: string
+          format: date
+        description: Inclusive UTC calendar start date (YYYY-MM-DD).
+      - name: end
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date
+        description: Inclusive UTC calendar end date (YYYY-MM-DD). Defaults to the latest published date.
+      - name: includeRecords
+        in: query
+        required: false
+        schema:
+          type: boolean
+          default: false
+        description: Include metric-specific treasury asset and OHM supply records.
+      responses:
+        '200':
+          description: Daily metrics.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/DailyMetric'
+        '400':
+          description: Invalid date range.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+components:
+  schemas:
+    DailyMetric:
+      type: object
+      description: Daily cross-chain rollup protocol metric snapshot.
+      properties:
+        date:
+          type: string
+          format: date
+          description: UTC calendar date for this metric snapshot.
+        ohmPrice:
+          type: number
+          format: double
+          description: OHM price in USD.
+        gOhmPrice:
+          type: number
+          format: double
+          description: gOHM price in USD.
+        ohmApy:
+          type: number
+          format: double
+          description: OHM annual percentage yield.
+        ohmIndex:
+          type: number
+          format: double
+          description: OHM index value.
+        totalSupply:
+          type: number
+          format: double
+          description: Total OHM supply.
+        circulatingSupply:
+          type: number
+          format: double
+          description: OHM circulating supply.
+        floatingSupply:
+          type: number
+          format: double
+          description: OHM floating supply (excluding protocol-owned).
+        backedSupply:
+          type: number
+          format: double
+          description: OHM backed supply.
+        sOhmCirculatingSupply:
+          type: number
+          format: double
+          description: sOHM circulating supply.
+        sOhmTvl:
+          type: number
+          format: double
+          description: sOHM total value locked in USD.
+        treasuryMarketValue:
+          type: number
+          format: double
+          description: Treasury total market value in USD.
+        treasuryLiquidBacking:
+          type: number
+          format: double
+          description: Treasury liquid backing value in USD.
+    Error:
+      type: object
+      description: Error response.
+      properties:
+        error:
+          type: string
+          description: Human-readable error message.

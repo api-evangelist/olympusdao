@@ -1,0 +1,47 @@
+openapi: 3.1.0
+info:
+  title: Olympus Protocol Metrics Health Metadata API
+  version: 2.0.0
+  description: Cacheable REST API for Olympus protocol metrics, treasury assets, and OHM supply. /operations routes are deprecated compatibility routes.
+servers:
+- url: https://treasury-subgraph-api.olympusdao.finance
+  description: Olympus Protocol Metrics API
+tags:
+- name: Metadata
+  description: Date bounds and indexer metadata.
+paths:
+  /v2/bounds:
+    get:
+      summary: Published date bounds
+      operationId: getBounds
+      tags:
+      - Metadata
+      description: Returns the earliest and latest available dates in the published artifact store, maximum range window (default 366 days), the active indexer deployment identifier, and per-chain indexing progress (block and date).
+      responses:
+        '200':
+          description: Earliest/latest dates, maximum v2 range, and latest per-chain indexing progress.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  earliestDate:
+                    type: string
+                    format: date
+                  latestDate:
+                    type: string
+                    format: date
+                  maxRangeDays:
+                    type: integer
+                  deploymentId:
+                    type: string
+                  chains:
+                    type: object
+                    additionalProperties:
+                      type: object
+                      properties:
+                        latestBlock:
+                          type: integer
+                        latestDate:
+                          type: string
+                          format: date

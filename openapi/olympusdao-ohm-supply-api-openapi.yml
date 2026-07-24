@@ -1,0 +1,98 @@
+openapi: 3.1.0
+info:
+  title: Olympus Protocol Metrics Health OHM Supply API
+  version: 2.0.0
+  description: Cacheable REST API for Olympus protocol metrics, treasury assets, and OHM supply. /operations routes are deprecated compatibility routes.
+servers:
+- url: https://treasury-subgraph-api.olympusdao.finance
+  description: Olympus Protocol Metrics API
+tags:
+- name: OHM Supply
+  description: Daily OHM supply attribution records.
+paths:
+  /v2/ohm-supply/daily:
+    get:
+      summary: Daily OHM supply
+      operationId: getDailyOhmSupply
+      tags:
+      - OHM Supply
+      description: 'Returns OHM supply attribution records for the requested date range: supply category, chain, block, balance, and USD value.'
+      parameters:
+      - name: start
+        in: query
+        required: true
+        schema:
+          type: string
+          format: date
+        description: Inclusive UTC calendar start date (YYYY-MM-DD).
+      - name: end
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date
+        description: Inclusive UTC calendar end date (YYYY-MM-DD). Defaults to the latest published date.
+      responses:
+        '200':
+          description: OHM supply records.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/OhmSupplyRecord'
+        '400':
+          description: Invalid date range.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+components:
+  schemas:
+    OhmSupplyRecord:
+      type: object
+      description: OHM supply attribution record for a given day.
+      properties:
+        date:
+          type: string
+          format: date
+          description: UTC calendar date.
+        supplyCategory:
+          type: string
+          description: Supply category label.
+          enum:
+          - Total Supply
+          - Treasury
+          - Liquidity-bound
+          - Lending-bound
+        chain:
+          type: string
+          description: EVM chain name.
+          enum:
+          - Ethereum
+          - Arbitrum
+          - Base
+          - Polygon
+          - Fantom
+          - Berachain
+        block:
+          type: integer
+          description: Block number of the snapshot.
+        balance:
+          type: number
+          format: double
+          description: OHM balance for this supply category and chain.
+        value:
+          type: number
+          format: double
+          description: USD value of the OHM balance.
+    Error:
+      type: object
+      description: Error response.
+      properties:
+        error:
+          type: string
+          description: Human-readable error message.
