@@ -8,6 +8,17 @@ description: >-
   supply, treasury asset holdings, protocol metrics (price, APY, index), and
   bond market data — powering the Olympus Treasury Dashboard and third-party
   integrations such as CoinGecko.
+accessModel:
+  pricing: unknown
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Unknown
+  confidence: low
+  source: []
+  generated: '2026-07-22'
+  method: derived
 image: https://www.olympusdao.finance/images/og-image.png
 tags:
   - DeFi
@@ -24,237 +35,165 @@ created: "2021-05-01"
 modified: "2026-06-14"
 specificationVersion: "0.19"
 apis:
-  - name: Olympus Protocol Metrics API
+- name: Olympus OHM Circulating Supply API
+  description: >-
+    Serverless GCP Cloud Function that returns the current OHM circulating supply as a plain-text numeric
+    string. Reads from a one-hour Firestore cache backed by the Olympus Protocol Metrics API. Used by
+    CoinGecko to display accurate circulating supply on the OHM token page. Cache can be bypassed with
+    ?cache=false.
+  image: https://www.olympusdao.finance/images/og-image.png
+  humanURL: https://github.com/OlympusDAO/coingecko-api
+  baseURL: https://circulating-supply.api.olympusdao.finance
+  tags:
+  - OHM Supply
+  - CoinGecko
+  - Circulating Supply
+  properties:
+  - type: GitHubRepository
+    url: https://github.com/OlympusDAO/coingecko-api
+  contact:
+  - FN: OlympusDAO
+    url: https://www.olympusdao.finance/
+  endpoints:
+  - name: OHM Circulating Supply
     description: >-
-      Cacheable REST API serving daily protocol metrics, treasury asset records,
-      and OHM supply data for the Olympus protocol across six EVM chains
-      (Ethereum, Arbitrum, Base, Polygon, Fantom, Berachain). Backed by an
-      Envio HyperIndex indexer publishing 8-hour-cadence snapshots to an
-      S3-compatible artifact store. Responses carry a one-hour Cache-Control
-      TTL and are served through Cloudflare. Supports a date-range query
-      window of up to 366 days.
-    image: https://www.olympusdao.finance/images/og-image.png
-    humanURL: https://docs.olympusdao.finance/
-    baseURL: https://treasury-subgraph-api.olympusdao.finance
+      Returns the current OHM circulating supply as a plain-text numeric string. Cached in Firestore for
+      one hour; append ?cache=false to force a live fetch from the treasury subgraph API.
+    method: GET
+    path: /
+    parameters:
+    - name: cache
+      in: query
+      required: false
+      description: Set to "false" to bypass the one-hour Firestore cache.
+      schema:
+        type: string
+        enum:
+        - 'false'
     tags:
-      - Treasury
-      - Protocol Metrics
-      - OHM Supply
-      - DeFi
-      - REST
-    properties:
-      - type: Documentation
-        url: https://docs.olympusdao.finance/
-      - type: OpenAPI
-        url: https://treasury-subgraph-api.olympusdao.finance/openapi.json
-      - type: GitHubRepository
-        url: https://github.com/OlympusDAO/olympus-protocol-metrics-subgraph
-    contact:
-      - FN: OlympusDAO
-        email: ""
-        X-twitter: OlympusDAO
-        url: https://www.olympusdao.finance/
-    meta:
-      - tags:
-          - DeFi
-          - Treasury
-          - Protocol Metrics
-    endpoints:
-      - name: Readiness Probe
-        description: >-
-          Returns { "status": "ready" } when the API is healthy. Cached with
-          no-store so load balancers and Cloudflare always receive a fresh
-          response.
-        method: GET
-        path: /ready
-        tags:
-          - Health
-      - name: Published Date Bounds
-        description: >-
-          Returns the earliest and latest available dates in the published
-          artifact store, maximum range window (default 366 days), the active
-          indexer deployment identifier, and per-chain indexing progress
-          (block and date). Cached with no-store.
-        method: GET
-        path: /v2/bounds
-        tags:
-          - Metadata
-      - name: Daily Protocol Metrics
-        description: >-
-          Returns daily cross-chain rollup metrics for the requested date
-          range: OHM price, gOHM price, OHM APY, OHM index, total supply,
-          circulating supply, floating supply, backed supply, sOHM circulating
-          supply, sOHM TVL, treasury market value, treasury liquid backing, and
-          per-chain block/timestamp snapshots. Optionally includes per-record
-          breakdowns via includeRecords=true.
-        method: GET
-        path: /v2/metrics/daily
-        parameters:
-          - name: start
-            in: query
-            required: true
-            description: >-
-              Start date in YYYY-MM-DD format (inclusive). Must fall within the
-              published bounds.
-            schema:
-              type: string
-              format: date
-          - name: end
-            in: query
-            required: false
-            description: >-
-              End date in YYYY-MM-DD format (inclusive). Defaults to the latest
-              published date. Range capped at maxRangeDays.
-            schema:
-              type: string
-              format: date
-          - name: includeRecords
-            in: query
-            required: false
-            description: >-
-              When true, includes per-record treasury asset and OHM supply
-              breakdowns within each daily metric object.
-            schema:
-              type: boolean
-        tags:
-          - Protocol Metrics
-          - OHM
-          - Treasury
-      - name: Daily Treasury Assets
-        description: >-
-          Returns individual treasury asset records for the requested date
-          range: token symbol, address, chain, wallet, price, balance, and
-          USD value — one row per (token, wallet, chain, block) combination.
-          Selected at the canonical block snapshot for each UTC day.
-        method: GET
-        path: /v2/treasury-assets/daily
-        parameters:
-          - name: start
-            in: query
-            required: true
-            description: Start date in YYYY-MM-DD format (inclusive).
-            schema:
-              type: string
-              format: date
-          - name: end
-            in: query
-            required: false
-            description: End date in YYYY-MM-DD format (inclusive).
-            schema:
-              type: string
-              format: date
-        tags:
-          - Treasury
-          - Assets
-      - name: Daily OHM Supply
-        description: >-
-          Returns OHM supply attribution records for the requested date range:
-          supply category (Total Supply, Treasury holdings, Liquidity-bound,
-          Lending-bound), chain, block, balance, and USD value. Composes into
-          circulating, floating, and backed supply at the global level.
-        method: GET
-        path: /v2/ohm-supply/daily
-        parameters:
-          - name: start
-            in: query
-            required: true
-            description: Start date in YYYY-MM-DD format (inclusive).
-            schema:
-              type: string
-              format: date
-          - name: end
-            in: query
-            required: false
-            description: End date in YYYY-MM-DD format (inclusive).
-            schema:
-              type: string
-              format: date
-        tags:
-          - OHM Supply
-          - Token Supply
-
-  - name: Olympus OHM Circulating Supply API
+    - OHM Supply
+    - Circulating Supply
+- name: Olympus OHM Total Supply API
+  description: >-
+    Serverless GCP Cloud Function that returns the current OHM total supply as a plain-text numeric string.
+    Reads from a one-hour Firestore cache backed by the Olympus Protocol Metrics API. Used by CoinGecko
+    to display accurate total supply on the OHM token page. Cache can be bypassed with ?cache=false.
+  image: https://www.olympusdao.finance/images/og-image.png
+  humanURL: https://github.com/OlympusDAO/coingecko-api
+  baseURL: https://total-supply.api.olympusdao.finance
+  tags:
+  - OHM Supply
+  - CoinGecko
+  - Total Supply
+  properties:
+  - type: GitHubRepository
+    url: https://github.com/OlympusDAO/coingecko-api
+  contact:
+  - FN: OlympusDAO
+    url: https://www.olympusdao.finance/
+  endpoints:
+  - name: OHM Total Supply
     description: >-
-      Serverless GCP Cloud Function that returns the current OHM circulating
-      supply as a plain-text numeric string. Reads from a one-hour Firestore
-      cache backed by the Olympus Protocol Metrics API. Used by CoinGecko to
-      display accurate circulating supply on the OHM token page. Cache can
-      be bypassed with ?cache=false.
-    image: https://www.olympusdao.finance/images/og-image.png
-    humanURL: https://github.com/OlympusDAO/coingecko-api
-    baseURL: https://circulating-supply.api.olympusdao.finance
+      Returns the current OHM total supply as a plain-text numeric string. Cached in Firestore for one
+      hour; append ?cache=false to force a live fetch from the treasury subgraph API.
+    method: GET
+    path: /
+    parameters:
+    - name: cache
+      in: query
+      required: false
+      description: Set to "false" to bypass the one-hour Firestore cache.
+      schema:
+        type: string
+        enum:
+        - 'false'
     tags:
-      - OHM Supply
-      - CoinGecko
-      - Circulating Supply
-    properties:
-      - type: GitHubRepository
-        url: https://github.com/OlympusDAO/coingecko-api
-    contact:
-      - FN: OlympusDAO
-        url: https://www.olympusdao.finance/
-    endpoints:
-      - name: OHM Circulating Supply
-        description: >-
-          Returns the current OHM circulating supply as a plain-text numeric
-          string. Cached in Firestore for one hour; append ?cache=false to
-          force a live fetch from the treasury subgraph API.
-        method: GET
-        path: /
-        parameters:
-          - name: cache
-            in: query
-            required: false
-            description: Set to "false" to bypass the one-hour Firestore cache.
-            schema:
-              type: string
-              enum:
-                - "false"
-        tags:
-          - OHM Supply
-          - Circulating Supply
-
-  - name: Olympus OHM Total Supply API
-    description: >-
-      Serverless GCP Cloud Function that returns the current OHM total supply
-      as a plain-text numeric string. Reads from a one-hour Firestore cache
-      backed by the Olympus Protocol Metrics API. Used by CoinGecko to display
-      accurate total supply on the OHM token page. Cache can be bypassed with
-      ?cache=false.
-    image: https://www.olympusdao.finance/images/og-image.png
-    humanURL: https://github.com/OlympusDAO/coingecko-api
-    baseURL: https://total-supply.api.olympusdao.finance
-    tags:
-      - OHM Supply
-      - CoinGecko
-      - Total Supply
-    properties:
-      - type: GitHubRepository
-        url: https://github.com/OlympusDAO/coingecko-api
-    contact:
-      - FN: OlympusDAO
-        url: https://www.olympusdao.finance/
-    endpoints:
-      - name: OHM Total Supply
-        description: >-
-          Returns the current OHM total supply as a plain-text numeric string.
-          Cached in Firestore for one hour; append ?cache=false to force a live
-          fetch from the treasury subgraph API.
-        method: GET
-        path: /
-        parameters:
-          - name: cache
-            in: query
-            required: false
-            description: Set to "false" to bypass the one-hour Firestore cache.
-            schema:
-              type: string
-              enum:
-                - "false"
-        tags:
-          - OHM Supply
-          - Total Supply
-
+    - OHM Supply
+    - Total Supply
+- aid: olympusdao:olympusdao-health-api
+  name: OlympusDAO Health API
+  description: API health and readiness endpoints.
+  humanURL: https://docs.olympusdao.finance/
+  baseURL: https://treasury-subgraph-api.olympusdao.finance
+  tags:
+  - Health
+  properties:
+  - type: OpenAPI
+    url: openapi/olympusdao-health-api-openapi.yml
+  - type: Documentation
+    url: https://docs.olympusdao.finance/
+  - type: GitHubRepository
+    url: https://github.com/OlympusDAO/olympus-protocol-metrics-subgraph
+- aid: olympusdao:olympusdao-legacy-api
+  name: OlympusDAO Legacy API
+  description: Deprecated WunderGraph-compatible /operations routes.
+  humanURL: https://docs.olympusdao.finance/
+  baseURL: https://treasury-subgraph-api.olympusdao.finance
+  tags:
+  - Legacy
+  properties:
+  - type: OpenAPI
+    url: openapi/olympusdao-legacy-api-openapi.yml
+  - type: Documentation
+    url: https://docs.olympusdao.finance/
+  - type: GitHubRepository
+    url: https://github.com/OlympusDAO/olympus-protocol-metrics-subgraph
+- aid: olympusdao:olympusdao-metadata-api
+  name: OlympusDAO Metadata API
+  description: Date bounds and indexer metadata.
+  humanURL: https://docs.olympusdao.finance/
+  baseURL: https://treasury-subgraph-api.olympusdao.finance
+  tags:
+  - Metadata
+  properties:
+  - type: OpenAPI
+    url: openapi/olympusdao-metadata-api-openapi.yml
+  - type: Documentation
+    url: https://docs.olympusdao.finance/
+  - type: GitHubRepository
+    url: https://github.com/OlympusDAO/olympus-protocol-metrics-subgraph
+- aid: olympusdao:olympusdao-ohm-supply-api
+  name: OlympusDAO OHM Supply API
+  description: Daily OHM supply attribution records.
+  humanURL: https://docs.olympusdao.finance/
+  baseURL: https://treasury-subgraph-api.olympusdao.finance
+  tags:
+  - OHM Supply
+  properties:
+  - type: OpenAPI
+    url: openapi/olympusdao-ohm-supply-api-openapi.yml
+  - type: Documentation
+    url: https://docs.olympusdao.finance/
+  - type: GitHubRepository
+    url: https://github.com/OlympusDAO/olympus-protocol-metrics-subgraph
+- aid: olympusdao:olympusdao-protocol-metrics-api
+  name: OlympusDAO Protocol Metrics API
+  description: Daily cross-chain OHM protocol metrics.
+  humanURL: https://docs.olympusdao.finance/
+  baseURL: https://treasury-subgraph-api.olympusdao.finance
+  tags:
+  - Protocol Metrics
+  properties:
+  - type: OpenAPI
+    url: openapi/olympusdao-protocol-metrics-api-openapi.yml
+  - type: Documentation
+    url: https://docs.olympusdao.finance/
+  - type: GitHubRepository
+    url: https://github.com/OlympusDAO/olympus-protocol-metrics-subgraph
+- aid: olympusdao:olympusdao-treasury-api
+  name: OlympusDAO Treasury API
+  description: Daily treasury asset holdings.
+  humanURL: https://docs.olympusdao.finance/
+  baseURL: https://treasury-subgraph-api.olympusdao.finance
+  tags:
+  - Treasury
+  properties:
+  - type: OpenAPI
+    url: openapi/olympusdao-treasury-api-openapi.yml
+  - type: Documentation
+    url: https://docs.olympusdao.finance/
+  - type: GitHubRepository
+    url: https://github.com/OlympusDAO/olympus-protocol-metrics-subgraph
 maintainers:
   - FN: OlympusDAO
     X-twitter: OlympusDAO
