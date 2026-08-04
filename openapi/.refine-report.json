@@ -1,0 +1,24 @@
+{
+  "provider": "olympusdao",
+  "sources": [
+    "olympusdao-health-api-openapi.yml",
+    "olympusdao-legacy-api-openapi.yml",
+    "olympusdao-metadata-api-openapi.yml",
+    "olympusdao-ohm-supply-api-openapi.yml",
+    "olympusdao-protocol-metrics-api-openapi.yml",
+    "olympusdao-treasury-api-openapi.yml"
+  ],
+  "outputs": [
+    "olympusdao-health-api-openapi.yml",
+    "olympusdao-legacy-api-openapi.yml",
+    "olympusdao-metadata-api-openapi.yml",
+    "olympusdao-ohm-supply-api-openapi.yml",
+    "olympusdao-protocol-metrics-api-openapi.yml",
+    "olympusdao-treasury-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
