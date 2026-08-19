@@ -33,7 +33,7 @@ tags:
 url: https://www.olympusdao.finance/
 created: "2021-05-01"
 modified: "2026-06-14"
-specificationVersion: "0.19"
+specificationVersion: '0.23'
 apis:
 - name: Olympus OHM Circulating Supply API
   description: >-
