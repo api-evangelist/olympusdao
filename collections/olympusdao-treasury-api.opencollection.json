@@ -1,0 +1,43 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Olympus Protocol Metrics Health Treasury API",
+    "version": "2.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Treasury",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Daily treasury assets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://treasury-subgraph-api.olympusdao.finance/v2/treasury-assets/daily",
+            "params": [
+              {
+                "name": "start",
+                "value": "",
+                "type": "query",
+                "description": "Inclusive UTC calendar start date (YYYY-MM-DD)."
+              },
+              {
+                "name": "end",
+                "value": "",
+                "type": "query",
+                "description": "Inclusive UTC calendar end date (YYYY-MM-DD). Defaults to the latest published date."
+              }
+            ]
+          },
+          "docs": "Returns individual treasury asset records for the requested date range: token symbol, address, chain, wallet, price, balance, and USD value — one row per (token, wallet, chain, block) combination."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

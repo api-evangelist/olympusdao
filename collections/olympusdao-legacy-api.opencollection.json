@@ -1,0 +1,341 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Olympus Protocol Metrics Health Legacy API",
+    "version": "2.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Legacy",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Legacy WunderGraph-compatible health response.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://treasury-subgraph-api.olympusdao.finance/operations/health",
+            "params": [
+              {
+                "name": "wg_variables",
+                "value": "",
+                "type": "query",
+                "description": "JSON-encoded legacy WunderGraph variables."
+              }
+            ]
+          },
+          "docs": "Legacy WunderGraph-compatible health response."
+        },
+        {
+          "info": {
+            "name": "Latest protocol metrics.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://treasury-subgraph-api.olympusdao.finance/operations/latest/metrics",
+            "params": [
+              {
+                "name": "wg_variables",
+                "value": "",
+                "type": "query",
+                "description": "JSON-encoded legacy WunderGraph variables."
+              }
+            ]
+          },
+          "docs": "Latest protocol metrics."
+        },
+        {
+          "info": {
+            "name": "Earliest protocol metrics.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://treasury-subgraph-api.olympusdao.finance/operations/earliest/metrics",
+            "params": [
+              {
+                "name": "wg_variables",
+                "value": "",
+                "type": "query",
+                "description": "JSON-encoded legacy WunderGraph variables."
+              }
+            ]
+          },
+          "docs": "Earliest protocol metrics."
+        },
+        {
+          "info": {
+            "name": "Daily protocol metrics from a start date to optional end date.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://treasury-subgraph-api.olympusdao.finance/operations/paginated/metrics",
+            "params": [
+              {
+                "name": "wg_variables",
+                "value": "",
+                "type": "query",
+                "description": "JSON-encoded legacy WunderGraph variables."
+              }
+            ]
+          },
+          "docs": "Daily protocol metrics from a start date to optional end date."
+        },
+        {
+          "info": {
+            "name": "Latest treasury assets using the legacy tokenRecords shape.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://treasury-subgraph-api.olympusdao.finance/operations/latest/tokenRecords",
+            "params": [
+              {
+                "name": "wg_variables",
+                "value": "",
+                "type": "query",
+                "description": "JSON-encoded legacy WunderGraph variables."
+              }
+            ]
+          },
+          "docs": "Latest treasury assets using the legacy tokenRecords shape."
+        },
+        {
+          "info": {
+            "name": "Earliest treasury assets using the legacy tokenRecords shape.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://treasury-subgraph-api.olympusdao.finance/operations/earliest/tokenRecords",
+            "params": [
+              {
+                "name": "wg_variables",
+                "value": "",
+                "type": "query",
+                "description": "JSON-encoded legacy WunderGraph variables."
+              }
+            ]
+          },
+          "docs": "Earliest treasury assets using the legacy tokenRecords shape."
+        },
+        {
+          "info": {
+            "name": "Treasury assets using the legacy tokenRecords shape.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://treasury-subgraph-api.olympusdao.finance/operations/paginated/tokenRecords",
+            "params": [
+              {
+                "name": "wg_variables",
+                "value": "",
+                "type": "query",
+                "description": "JSON-encoded legacy WunderGraph variables."
+              }
+            ]
+          },
+          "docs": "Treasury assets using the legacy tokenRecords shape."
+        },
+        {
+          "info": {
+            "name": "Latest OHM supply using the legacy tokenSupplies shape.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://treasury-subgraph-api.olympusdao.finance/operations/latest/tokenSupplies",
+            "params": [
+              {
+                "name": "wg_variables",
+                "value": "",
+                "type": "query",
+                "description": "JSON-encoded legacy WunderGraph variables."
+              }
+            ]
+          },
+          "docs": "Latest OHM supply using the legacy tokenSupplies shape."
+        },
+        {
+          "info": {
+            "name": "Earliest OHM supply using the legacy tokenSupplies shape.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://treasury-subgraph-api.olympusdao.finance/operations/earliest/tokenSupplies",
+            "params": [
+              {
+                "name": "wg_variables",
+                "value": "",
+                "type": "query",
+                "description": "JSON-encoded legacy WunderGraph variables."
+              }
+            ]
+          },
+          "docs": "Earliest OHM supply using the legacy tokenSupplies shape."
+        },
+        {
+          "info": {
+            "name": "OHM supply using the legacy tokenSupplies shape.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://treasury-subgraph-api.olympusdao.finance/operations/paginated/tokenSupplies",
+            "params": [
+              {
+                "name": "wg_variables",
+                "value": "",
+                "type": "query",
+                "description": "JSON-encoded legacy WunderGraph variables."
+              }
+            ]
+          },
+          "docs": "OHM supply using the legacy tokenSupplies shape."
+        },
+        {
+          "info": {
+            "name": "Latest protocol metrics using the legacy protocolMetrics alias.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://treasury-subgraph-api.olympusdao.finance/operations/latest/protocolMetrics",
+            "params": [
+              {
+                "name": "wg_variables",
+                "value": "",
+                "type": "query",
+                "description": "JSON-encoded legacy WunderGraph variables."
+              }
+            ]
+          },
+          "docs": "Latest protocol metrics using the legacy protocolMetrics alias."
+        },
+        {
+          "info": {
+            "name": "Earliest protocol metrics using the legacy protocolMetrics alias.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://treasury-subgraph-api.olympusdao.finance/operations/earliest/protocolMetrics",
+            "params": [
+              {
+                "name": "wg_variables",
+                "value": "",
+                "type": "query",
+                "description": "JSON-encoded legacy WunderGraph variables."
+              }
+            ]
+          },
+          "docs": "Earliest protocol metrics using the legacy protocolMetrics alias."
+        },
+        {
+          "info": {
+            "name": "Protocol metrics from a start date to optional end date using the legacy protocolMetrics alias.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://treasury-subgraph-api.olympusdao.finance/operations/paginated/protocolMetrics",
+            "params": [
+              {
+                "name": "wg_variables",
+                "value": "",
+                "type": "query",
+                "description": "JSON-encoded legacy WunderGraph variables."
+              }
+            ]
+          },
+          "docs": "Protocol metrics from a start date to optional end date using the legacy protocolMetrics alias."
+        },
+        {
+          "info": {
+            "name": "Deprecated atBlock metrics placeholder.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://treasury-subgraph-api.olympusdao.finance/operations/atBlock/metrics",
+            "params": [
+              {
+                "name": "wg_variables",
+                "value": "",
+                "type": "query",
+                "description": "JSON-encoded legacy WunderGraph variables."
+              }
+            ]
+          },
+          "docs": "Deprecated atBlock metrics placeholder."
+        },
+        {
+          "info": {
+            "name": "Deprecated atBlock tokenRecords placeholder.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://treasury-subgraph-api.olympusdao.finance/operations/atBlock/tokenRecords",
+            "params": [
+              {
+                "name": "wg_variables",
+                "value": "",
+                "type": "query",
+                "description": "JSON-encoded legacy WunderGraph variables."
+              }
+            ]
+          },
+          "docs": "Deprecated atBlock tokenRecords placeholder."
+        },
+        {
+          "info": {
+            "name": "Deprecated atBlock tokenSupplies placeholder.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://treasury-subgraph-api.olympusdao.finance/operations/atBlock/tokenSupplies",
+            "params": [
+              {
+                "name": "wg_variables",
+                "value": "",
+                "type": "query",
+                "description": "JSON-encoded legacy WunderGraph variables."
+              }
+            ]
+          },
+          "docs": "Deprecated atBlock tokenSupplies placeholder."
+        },
+        {
+          "info": {
+            "name": "Deprecated atBlock protocolMetrics placeholder.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://treasury-subgraph-api.olympusdao.finance/operations/atBlock/internal/protocolMetrics",
+            "params": [
+              {
+                "name": "wg_variables",
+                "value": "",
+                "type": "query",
+                "description": "JSON-encoded legacy WunderGraph variables."
+              }
+            ]
+          },
+          "docs": "Deprecated atBlock protocolMetrics placeholder."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

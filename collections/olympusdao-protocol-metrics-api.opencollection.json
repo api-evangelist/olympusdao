@@ -1,0 +1,49 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Olympus Health Protocol Metrics API",
+    "version": "2.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Protocol Metrics",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Daily protocol metrics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://treasury-subgraph-api.olympusdao.finance/v2/metrics/daily",
+            "params": [
+              {
+                "name": "start",
+                "value": "",
+                "type": "query",
+                "description": "Inclusive UTC calendar start date (YYYY-MM-DD)."
+              },
+              {
+                "name": "end",
+                "value": "",
+                "type": "query",
+                "description": "Inclusive UTC calendar end date (YYYY-MM-DD). Defaults to the latest published date."
+              },
+              {
+                "name": "includeRecords",
+                "value": "",
+                "type": "query",
+                "description": "Include metric-specific treasury asset and OHM supply records."
+              }
+            ]
+          },
+          "docs": "Returns daily cross-chain rollup metrics for the requested date range: OHM price, gOHM price, OHM APY, OHM index, total supply, circulating supply, floating supply, backed supply, sOHM circulating supply, sOHM TVL, treasury market value, treasury liquid backing, and per-chain block/timestamp snapshots."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

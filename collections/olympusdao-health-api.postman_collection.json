@@ -1,0 +1,99 @@
+{
+  "item": [
+    {
+      "id": "954a0ea1-a375-4e05-ac7d-c231a34aad73",
+      "name": "Health",
+      "description": {
+        "content": "API health and readiness endpoints.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "1f98fd15-60de-46fb-91d1-c190bb03de53",
+          "name": "Readiness probe",
+          "request": {
+            "name": "Readiness probe",
+            "description": {},
+            "url": {
+              "path": [
+                "ready"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b6160aaf-d491-48e3-bbd0-002254565aaa",
+              "name": "API is ready.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ready"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"ready\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://treasury-subgraph-api.olympusdao.finance",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "15419829-3138-4aa7-927a-1d04e8e99128",
+    "name": "Olympus Protocol Metrics Health API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Cacheable REST API for Olympus protocol metrics, treasury assets, and OHM supply. /operations routes are deprecated compatibility routes.",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,174 @@
+{
+  "item": [
+    {
+      "id": "56cee24c-52dc-4777-9cb7-3da9fdef74ab",
+      "name": "Treasury",
+      "description": {
+        "content": "Daily treasury asset holdings.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "95174df4-9325-40e0-8816-270180e63e08",
+          "name": "Daily treasury assets",
+          "request": {
+            "name": "Daily treasury assets",
+            "description": {
+              "content": "Returns individual treasury asset records for the requested date range: token symbol, address, chain, wallet, price, balance, and USD value — one row per (token, wallet, chain, block) combination.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "treasury-assets",
+                "daily"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "start",
+                  "value": "<date>",
+                  "description": "(Required) Inclusive UTC calendar start date (YYYY-MM-DD)."
+                },
+                {
+                  "disabled": false,
+                  "key": "end",
+                  "value": "<date>",
+                  "description": "Inclusive UTC calendar end date (YYYY-MM-DD). Defaults to the latest published date."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "451f20d5-fbaa-49c8-8276-55b50a32186b",
+              "name": "Treasury assets.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "treasury-assets",
+                    "daily"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "end",
+                      "value": "<date>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"date\": \"1951-08-16\",\n      \"tokenSymbol\": \"string\",\n      \"tokenAddress\": \"string\",\n      \"chain\": \"Fantom\",\n      \"wallet\": \"string\",\n      \"price\": 6783.575362686554,\n      \"balance\": 9468.991528047924,\n      \"value\": 4129.496993017323,\n      \"block\": 7951\n    },\n    {\n      \"date\": \"1952-02-06\",\n      \"tokenSymbol\": \"string\",\n      \"tokenAddress\": \"string\",\n      \"chain\": \"Berachain\",\n      \"wallet\": \"string\",\n      \"price\": 7243.726033376671,\n      \"balance\": 453.305560701307,\n      \"value\": 399.76848379996267,\n      \"block\": 8892\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2ef174c5-a4d3-43ef-b1e0-bdded701ebc1",
+              "name": "Invalid date range.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "treasury-assets",
+                    "daily"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "end",
+                      "value": "<date>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://treasury-subgraph-api.olympusdao.finance",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "916bf346-cdc7-4d54-bc7e-0c338faf6f0b",
+    "name": "Olympus Protocol Metrics Health Treasury API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Cacheable REST API for Olympus protocol metrics, treasury assets, and OHM supply. /operations routes are deprecated compatibility routes.",
+      "type": "text/plain"
+    }
+  }
+}

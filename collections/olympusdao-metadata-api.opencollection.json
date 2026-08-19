@@ -1,0 +1,29 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Olympus Protocol Metrics Health Metadata API",
+    "version": "2.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Metadata",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Published date bounds",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://treasury-subgraph-api.olympusdao.finance/v2/bounds"
+          },
+          "docs": "Returns the earliest and latest available dates in the published artifact store, maximum range window (default 366 days), the active indexer deployment identifier, and per-chain indexing progress (block and date)."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

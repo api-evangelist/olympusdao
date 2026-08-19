@@ -1,0 +1,43 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Olympus Protocol Metrics Health OHM Supply API",
+    "version": "2.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "OHM Supply",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Daily OHM supply",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://treasury-subgraph-api.olympusdao.finance/v2/ohm-supply/daily",
+            "params": [
+              {
+                "name": "start",
+                "value": "",
+                "type": "query",
+                "description": "Inclusive UTC calendar start date (YYYY-MM-DD)."
+              },
+              {
+                "name": "end",
+                "value": "",
+                "type": "query",
+                "description": "Inclusive UTC calendar end date (YYYY-MM-DD). Defaults to the latest published date."
+              }
+            ]
+          },
+          "docs": "Returns OHM supply attribution records for the requested date range: supply category, chain, block, balance, and USD value."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

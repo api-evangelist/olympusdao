@@ -1,0 +1,1940 @@
+{
+  "item": [
+    {
+      "id": "5c0108ff-f694-4c5d-b45a-cde90cf2a2a6",
+      "name": "Legacy",
+      "description": {
+        "content": "Deprecated WunderGraph-compatible /operations routes.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "23454e20-7c75-4a8d-8979-5673462b7342",
+          "name": "Legacy WunderGraph-compatible health response.",
+          "request": {
+            "name": "Legacy WunderGraph-compatible health response.",
+            "description": {},
+            "url": {
+              "path": [
+                "operations",
+                "health"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "wg_variables",
+                  "value": "<string>",
+                  "description": "JSON-encoded legacy WunderGraph variables."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4c67bf6d-6422-4fdc-9f8b-77b3f5c87291",
+              "name": "Legacy WunderGraph-compatible response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "operations",
+                    "health"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "wg_variables",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fd3780b7-4c58-4402-9fdd-d1ffb3e72443",
+              "name": "Invalid request.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "operations",
+                    "health"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "wg_variables",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ab27cf5a-3f9a-4b60-9c1c-513cb78c1e57",
+          "name": "Latest protocol metrics.",
+          "request": {
+            "name": "Latest protocol metrics.",
+            "description": {},
+            "url": {
+              "path": [
+                "operations",
+                "latest",
+                "metrics"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "wg_variables",
+                  "value": "<string>",
+                  "description": "JSON-encoded legacy WunderGraph variables."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "454f0289-916a-47f9-951b-a39aff05642f",
+              "name": "Legacy WunderGraph-compatible response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "operations",
+                    "latest",
+                    "metrics"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "wg_variables",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3a758a67-e509-4c07-a5bf-a0df74671e39",
+              "name": "Invalid request.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "operations",
+                    "latest",
+                    "metrics"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "wg_variables",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1d441584-d481-4c3d-94e8-e914965159ff",
+          "name": "Earliest protocol metrics.",
+          "request": {
+            "name": "Earliest protocol metrics.",
+            "description": {},
+            "url": {
+              "path": [
+                "operations",
+                "earliest",
+                "metrics"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "wg_variables",
+                  "value": "<string>",
+                  "description": "JSON-encoded legacy WunderGraph variables."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "351f8d3f-847f-4f43-9cc1-6c64cc0418b2",
+              "name": "Legacy WunderGraph-compatible response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "operations",
+                    "earliest",
+                    "metrics"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "wg_variables",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "03ef883c-0afd-4a7e-a85c-b3a7c3fc4c0a",
+              "name": "Invalid request.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "operations",
+                    "earliest",
+                    "metrics"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "wg_variables",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3d0a324d-38ff-47e7-be28-4f8372eb4a79",
+          "name": "Daily protocol metrics from a start date to optional end date.",
+          "request": {
+            "name": "Daily protocol metrics from a start date to optional end date.",
+            "description": {},
+            "url": {
+              "path": [
+                "operations",
+                "paginated",
+                "metrics"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "wg_variables",
+                  "value": "<string>",
+                  "description": "JSON-encoded legacy WunderGraph variables."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "be3c2dcd-bc8f-4d4d-b445-89a54f3fa736",
+              "name": "Legacy WunderGraph-compatible response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "operations",
+                    "paginated",
+                    "metrics"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "wg_variables",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "93dbd5a6-0a02-40e2-885e-e940fbdcfb74",
+              "name": "Invalid request.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "operations",
+                    "paginated",
+                    "metrics"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "wg_variables",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ee3fada5-6ca6-49a5-a85f-cf2b623be30c",
+          "name": "Latest treasury assets using the legacy tokenRecords shape.",
+          "request": {
+            "name": "Latest treasury assets using the legacy tokenRecords shape.",
+            "description": {},
+            "url": {
+              "path": [
+                "operations",
+                "latest",
+                "tokenRecords"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "wg_variables",
+                  "value": "<string>",
+                  "description": "JSON-encoded legacy WunderGraph variables."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ebaccf5d-d0a2-4c5e-abc3-a16a8355ea77",
+              "name": "Legacy WunderGraph-compatible response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "operations",
+                    "latest",
+                    "tokenRecords"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "wg_variables",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "307d9154-cf15-483e-98f9-179e5bece296",
+              "name": "Invalid request.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "operations",
+                    "latest",
+                    "tokenRecords"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "wg_variables",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "23101994-2186-422d-8500-d50d627d55c8",
+          "name": "Earliest treasury assets using the legacy tokenRecords shape.",
+          "request": {
+            "name": "Earliest treasury assets using the legacy tokenRecords shape.",
+            "description": {},
+            "url": {
+              "path": [
+                "operations",
+                "earliest",
+                "tokenRecords"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "wg_variables",
+                  "value": "<string>",
+                  "description": "JSON-encoded legacy WunderGraph variables."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3aa6a6e6-45c3-419e-873a-78e8a1861a97",
+              "name": "Legacy WunderGraph-compatible response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "operations",
+                    "earliest",
+                    "tokenRecords"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "wg_variables",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e360313d-0200-4e70-8752-45a0572d5eda",
+              "name": "Invalid request.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "operations",
+                    "earliest",
+                    "tokenRecords"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "wg_variables",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3d3efdae-b0e2-4c9d-a856-f89ac68ea06e",
+          "name": "Treasury assets using the legacy tokenRecords shape.",
+          "request": {
+            "name": "Treasury assets using the legacy tokenRecords shape.",
+            "description": {},
+            "url": {
+              "path": [
+                "operations",
+                "paginated",
+                "tokenRecords"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "wg_variables",
+                  "value": "<string>",
+                  "description": "JSON-encoded legacy WunderGraph variables."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "45d98778-7d2e-40d7-96cb-a1374b1865ec",
+              "name": "Legacy WunderGraph-compatible response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "operations",
+                    "paginated",
+                    "tokenRecords"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "wg_variables",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "673e032a-ed99-4a82-8593-2e41616ad893",
+              "name": "Invalid request.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "operations",
+                    "paginated",
+                    "tokenRecords"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "wg_variables",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "407417ab-f505-457f-b608-f59912b9420e",
+          "name": "Latest OHM supply using the legacy tokenSupplies shape.",
+          "request": {
+            "name": "Latest OHM supply using the legacy tokenSupplies shape.",
+            "description": {},
+            "url": {
+              "path": [
+                "operations",
+                "latest",
+                "tokenSupplies"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "wg_variables",
+                  "value": "<string>",
+                  "description": "JSON-encoded legacy WunderGraph variables."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6b7711a6-db9e-4deb-8771-4fd0a19f31e4",
+              "name": "Legacy WunderGraph-compatible response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "operations",
+                    "latest",
+                    "tokenSupplies"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "wg_variables",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "98263745-fc63-456a-8069-c0002eaad856",
+              "name": "Invalid request.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "operations",
+                    "latest",
+                    "tokenSupplies"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "wg_variables",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "141c2562-cdc6-4435-a026-e951f97f5086",
+          "name": "Earliest OHM supply using the legacy tokenSupplies shape.",
+          "request": {
+            "name": "Earliest OHM supply using the legacy tokenSupplies shape.",
+            "description": {},
+            "url": {
+              "path": [
+                "operations",
+                "earliest",
+                "tokenSupplies"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "wg_variables",
+                  "value": "<string>",
+                  "description": "JSON-encoded legacy WunderGraph variables."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f9e90807-67cf-4f36-964b-73589363b098",
+              "name": "Legacy WunderGraph-compatible response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "operations",
+                    "earliest",
+                    "tokenSupplies"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "wg_variables",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "785301d3-75eb-4ca8-a44c-4619dc6f44d9",
+              "name": "Invalid request.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "operations",
+                    "earliest",
+                    "tokenSupplies"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "wg_variables",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5293e53c-6b81-4b80-8674-6da75db63ae4",
+          "name": "OHM supply using the legacy tokenSupplies shape.",
+          "request": {
+            "name": "OHM supply using the legacy tokenSupplies shape.",
+            "description": {},
+            "url": {
+              "path": [
+                "operations",
+                "paginated",
+                "tokenSupplies"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "wg_variables",
+                  "value": "<string>",
+                  "description": "JSON-encoded legacy WunderGraph variables."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "faf9f039-6487-4aa9-b296-43c88c20ecc7",
+              "name": "Legacy WunderGraph-compatible response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "operations",
+                    "paginated",
+                    "tokenSupplies"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "wg_variables",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dfed575e-d4eb-4ae2-8c31-0ca9f4692e27",
+              "name": "Invalid request.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "operations",
+                    "paginated",
+                    "tokenSupplies"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "wg_variables",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d8981e29-05d5-4af9-ae70-7d81170e03fb",
+          "name": "Latest protocol metrics using the legacy protocolMetrics alias.",
+          "request": {
+            "name": "Latest protocol metrics using the legacy protocolMetrics alias.",
+            "description": {},
+            "url": {
+              "path": [
+                "operations",
+                "latest",
+                "protocolMetrics"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "wg_variables",
+                  "value": "<string>",
+                  "description": "JSON-encoded legacy WunderGraph variables."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bb24583c-7952-44c1-8f83-5fe3c1d93878",
+              "name": "Legacy WunderGraph-compatible response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "operations",
+                    "latest",
+                    "protocolMetrics"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "wg_variables",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c9552976-d6c1-42e7-b4f7-5aaf1f00d868",
+              "name": "Invalid request.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "operations",
+                    "latest",
+                    "protocolMetrics"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "wg_variables",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "be187681-5678-4067-87cf-662338dfca29",
+          "name": "Earliest protocol metrics using the legacy protocolMetrics alias.",
+          "request": {
+            "name": "Earliest protocol metrics using the legacy protocolMetrics alias.",
+            "description": {},
+            "url": {
+              "path": [
+                "operations",
+                "earliest",
+                "protocolMetrics"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "wg_variables",
+                  "value": "<string>",
+                  "description": "JSON-encoded legacy WunderGraph variables."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "945d74ca-7214-48d6-8735-9ff4a1ab0b2a",
+              "name": "Legacy WunderGraph-compatible response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "operations",
+                    "earliest",
+                    "protocolMetrics"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "wg_variables",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "36f85ff5-99b2-4fbd-a864-aa4086bae0e9",
+              "name": "Invalid request.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "operations",
+                    "earliest",
+                    "protocolMetrics"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "wg_variables",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1d9c1ce3-d324-4d6d-b4f2-ea62bbb8af50",
+          "name": "Protocol metrics from a start date to optional end date using the legacy protocolMetrics alias.",
+          "request": {
+            "name": "Protocol metrics from a start date to optional end date using the legacy protocolMetrics alias.",
+            "description": {},
+            "url": {
+              "path": [
+                "operations",
+                "paginated",
+                "protocolMetrics"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "wg_variables",
+                  "value": "<string>",
+                  "description": "JSON-encoded legacy WunderGraph variables."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2638da49-63c6-4b3f-90d2-a0efcbd9922a",
+              "name": "Legacy WunderGraph-compatible response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "operations",
+                    "paginated",
+                    "protocolMetrics"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "wg_variables",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4f655ca7-85e7-4757-96dd-183df6be222a",
+              "name": "Invalid request.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "operations",
+                    "paginated",
+                    "protocolMetrics"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "wg_variables",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4858fd2a-0498-4b2d-8963-b32a7d4a3bb2",
+          "name": "Deprecated atBlock metrics placeholder.",
+          "request": {
+            "name": "Deprecated atBlock metrics placeholder.",
+            "description": {},
+            "url": {
+              "path": [
+                "operations",
+                "atBlock",
+                "metrics"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "wg_variables",
+                  "value": "<string>",
+                  "description": "JSON-encoded legacy WunderGraph variables."
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ab991faa-5340-446b-a313-e109dc5d7c46",
+              "name": "atBlock queries are not supported by the artifact-backed API.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "operations",
+                    "atBlock",
+                    "metrics"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "wg_variables",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Implemented",
+              "code": 501,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9c03d513-bdfb-48b9-be76-3d5814ef23e9",
+          "name": "Deprecated atBlock tokenRecords placeholder.",
+          "request": {
+            "name": "Deprecated atBlock tokenRecords placeholder.",
+            "description": {},
+            "url": {
+              "path": [
+                "operations",
+                "atBlock",
+                "tokenRecords"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "wg_variables",
+                  "value": "<string>",
+                  "description": "JSON-encoded legacy WunderGraph variables."
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b655146b-7d7f-4683-a379-4d041715d61f",
+              "name": "atBlock queries are not supported by the artifact-backed API.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "operations",
+                    "atBlock",
+                    "tokenRecords"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "wg_variables",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Implemented",
+              "code": 501,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fa7b6c21-2e1f-449c-979f-66316e187ab7",
+          "name": "Deprecated atBlock tokenSupplies placeholder.",
+          "request": {
+            "name": "Deprecated atBlock tokenSupplies placeholder.",
+            "description": {},
+            "url": {
+              "path": [
+                "operations",
+                "atBlock",
+                "tokenSupplies"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "wg_variables",
+                  "value": "<string>",
+                  "description": "JSON-encoded legacy WunderGraph variables."
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "feef3827-e0bc-4583-b4b9-41eabc28ebb5",
+              "name": "atBlock queries are not supported by the artifact-backed API.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "operations",
+                    "atBlock",
+                    "tokenSupplies"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "wg_variables",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Implemented",
+              "code": 501,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9e677529-b720-4971-97b6-b0e8d2afb3ba",
+          "name": "Deprecated atBlock protocolMetrics placeholder.",
+          "request": {
+            "name": "Deprecated atBlock protocolMetrics placeholder.",
+            "description": {},
+            "url": {
+              "path": [
+                "operations",
+                "atBlock",
+                "internal",
+                "protocolMetrics"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "wg_variables",
+                  "value": "<string>",
+                  "description": "JSON-encoded legacy WunderGraph variables."
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cc658fca-2d8e-45aa-bb31-a4d7b59e1bad",
+              "name": "atBlock queries are not supported by the artifact-backed API.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "operations",
+                    "atBlock",
+                    "internal",
+                    "protocolMetrics"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "wg_variables",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Implemented",
+              "code": 501,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://treasury-subgraph-api.olympusdao.finance",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "73bc0804-a50f-41e6-b731-8f58253e4dc4",
+    "name": "Olympus Protocol Metrics Health Legacy API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Cacheable REST API for Olympus protocol metrics, treasury assets, and OHM supply. /operations routes are deprecated compatibility routes.",
+      "type": "text/plain"
+    }
+  }
+}

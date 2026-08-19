@@ -1,0 +1,188 @@
+{
+  "item": [
+    {
+      "id": "18ff6acd-affc-4eb4-9132-b7dd6ef3589c",
+      "name": "Protocol Metrics",
+      "description": {
+        "content": "Daily cross-chain OHM protocol metrics.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c5f55e68-c71e-46ef-9421-76d4c79c5371",
+          "name": "Daily protocol metrics",
+          "request": {
+            "name": "Daily protocol metrics",
+            "description": {
+              "content": "Returns daily cross-chain rollup metrics for the requested date range: OHM price, gOHM price, OHM APY, OHM index, total supply, circulating supply, floating supply, backed supply, sOHM circulating supply, sOHM TVL, treasury market value, treasury liquid backing, and per-chain block/timestamp snapshots.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "metrics",
+                "daily"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "start",
+                  "value": "<date>",
+                  "description": "(Required) Inclusive UTC calendar start date (YYYY-MM-DD)."
+                },
+                {
+                  "disabled": false,
+                  "key": "end",
+                  "value": "<date>",
+                  "description": "Inclusive UTC calendar end date (YYYY-MM-DD). Defaults to the latest published date."
+                },
+                {
+                  "disabled": false,
+                  "key": "includeRecords",
+                  "value": "false",
+                  "description": "Include metric-specific treasury asset and OHM supply records."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3c380cc6-0fa0-4edc-ba3e-8dba77a32569",
+              "name": "Daily metrics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "metrics",
+                    "daily"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "end",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "includeRecords",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"date\": \"1991-08-15\",\n      \"ohmPrice\": 1771.1911431570493,\n      \"gOhmPrice\": 2869.333019755592,\n      \"ohmApy\": 6998.269430016128,\n      \"ohmIndex\": 3288.1655394492605,\n      \"totalSupply\": 6552.064087721393,\n      \"circulatingSupply\": 9575.846423755369,\n      \"floatingSupply\": 5400.848225808674,\n      \"backedSupply\": 8182.901540892934,\n      \"sOhmCirculatingSupply\": 5124.729608306476,\n      \"sOhmTvl\": 4592.839702979085,\n      \"treasuryMarketValue\": 3926.7440524980234,\n      \"treasuryLiquidBacking\": 1371.8873980137703\n    },\n    {\n      \"date\": \"2000-11-25\",\n      \"ohmPrice\": 2613.964733741213,\n      \"gOhmPrice\": 5875.808645734069,\n      \"ohmApy\": 1192.9550999056892,\n      \"ohmIndex\": 3878.9984615367266,\n      \"totalSupply\": 4095.122470393411,\n      \"circulatingSupply\": 227.52318497588186,\n      \"floatingSupply\": 3666.4328624735467,\n      \"backedSupply\": 6654.337871004309,\n      \"sOhmCirculatingSupply\": 8416.335779433193,\n      \"sOhmTvl\": 3948.0700803318637,\n      \"treasuryMarketValue\": 660.323112064517,\n      \"treasuryLiquidBacking\": 3670.854709969087\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d1a81588-306c-4f4b-b991-3608c10f2d5c",
+              "name": "Invalid date range.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "metrics",
+                    "daily"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "end",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "includeRecords",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://treasury-subgraph-api.olympusdao.finance",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "02a96f84-d9e4-466f-9e4c-808a1cc10de1",
+    "name": "Olympus Health Protocol Metrics API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Cacheable REST API for Olympus protocol metrics, treasury assets, and OHM supply. /operations routes are deprecated compatibility routes.",
+      "type": "text/plain"
+    }
+  }
+}

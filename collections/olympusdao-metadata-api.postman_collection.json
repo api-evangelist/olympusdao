@@ -1,0 +1,104 @@
+{
+  "item": [
+    {
+      "id": "537e13c6-d5b6-477a-b589-79fbf16bcd1a",
+      "name": "Metadata",
+      "description": {
+        "content": "Date bounds and indexer metadata.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c4a398d6-723a-4408-8542-c427081a6ecb",
+          "name": "Published date bounds",
+          "request": {
+            "name": "Published date bounds",
+            "description": {
+              "content": "Returns the earliest and latest available dates in the published artifact store, maximum range window (default 366 days), the active indexer deployment identifier, and per-chain indexing progress (block and date).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "bounds"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "07ce02ef-fee5-49d9-916c-df06133cec77",
+              "name": "Earliest/latest dates, maximum v2 range, and latest per-chain indexing progress.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "bounds"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"earliestDate\": \"2024-05-15\",\n  \"latestDate\": \"1980-02-20\",\n  \"maxRangeDays\": 256,\n  \"deploymentId\": \"string\",\n  \"chains\": {\n    \"key_0\": {\n      \"latestBlock\": 3525,\n      \"latestDate\": \"1957-06-06\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://treasury-subgraph-api.olympusdao.finance",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "5857767b-c59a-4d96-bd4d-d82e4eb57505",
+    "name": "Olympus Protocol Metrics Health Metadata API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Cacheable REST API for Olympus protocol metrics, treasury assets, and OHM supply. /operations routes are deprecated compatibility routes.",
+      "type": "text/plain"
+    }
+  }
+}
