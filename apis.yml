@@ -8,6 +8,18 @@ description: >-
   supply, treasury asset holdings, protocol metrics (price, APY, index), and
   bond market data — powering the Olympus Treasury Dashboard and third-party
   integrations such as CoinGecko.
+deliveryModel:
+  model: unknown
+  open_source: unknown
+  commercial: false
+  callable_host: true
+  label: Delivery model not determined — needs a product licence on record
+  confidence: low
+  source:
+  - openapi
+  - repository-unlicensed
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: unknown
   onboarding: unknown
@@ -199,6 +211,8 @@ maintainers:
     X-twitter: OlympusDAO
     url: https://www.olympusdao.finance/
 common:
+  - type: IssueTracker
+    url: https://github.com/OlympusDAO/coingecko-api/issues
   - type: AgenticAccess
     url: agentic-access/olympusdao-agentic-access.yml
   - type: DomainSecurity
