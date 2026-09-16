@@ -1,12 +1,9 @@
 name: OlympusDAO
-description: >-
-  OlympusDAO is a decentralized reserve currency protocol built on Ethereum
-  that pioneered protocol-owned liquidity (POL). The Olympus protocol issues
-  OHM, a crypto-native reserve currency backed by a diversified treasury of
-  on-chain assets across Ethereum, Arbitrum, Base, Polygon, Fantom, and
-  Berachain. OlympusDAO provides public REST APIs for querying daily OHM
-  supply, treasury asset holdings, protocol metrics (price, APY, index), and
-  bond market data — powering the Olympus Treasury Dashboard and third-party
+description: OlympusDAO is a decentralized reserve currency protocol built on Ethereum that pioneered
+  protocol-owned liquidity (POL). The Olympus protocol issues OHM, a crypto-native reserve currency backed
+  by a diversified treasury of on-chain assets across Ethereum, Arbitrum, Base, Polygon, Fantom, and Berachain.
+  OlympusDAO provides public REST APIs for querying daily OHM supply, treasury asset holdings, protocol
+  metrics (price, APY, index), and bond market data — powering the Olympus Treasury Dashboard and third-party
   integrations such as CoinGecko.
 deliveryModel:
   model: unknown
@@ -33,26 +30,25 @@ accessModel:
   method: derived
 image: https://www.olympusdao.finance/images/og-image.png
 tags:
-  - DeFi
-  - Protocol-Owned Liquidity
-  - Reserve Currency
-  - Treasury
-  - Staking
-  - Bonds
-  - OHM
-  - Ethereum
-  - Web3
+- DeFi
+- Protocol-Owned Liquidity
+- Reserve Currency
+- Treasury
+- Staking
+- Bonds
+- OHM
+- Ethereum
+- Web3
 url: https://www.olympusdao.finance/
-created: "2021-05-01"
-modified: "2026-06-14"
+created: '2021-05-01'
+modified: '2026-09-16'
 specificationVersion: '0.23'
 apis:
 - name: Olympus OHM Circulating Supply API
-  description: >-
-    Serverless GCP Cloud Function that returns the current OHM circulating supply as a plain-text numeric
-    string. Reads from a one-hour Firestore cache backed by the Olympus Protocol Metrics API. Used by
-    CoinGecko to display accurate circulating supply on the OHM token page. Cache can be bypassed with
-    ?cache=false.
+  description: Serverless GCP Cloud Function that returns the current OHM circulating supply as a plain-text
+    numeric string. Reads from a one-hour Firestore cache backed by the Olympus Protocol Metrics API.
+    Used by CoinGecko to display accurate circulating supply on the OHM token page. Cache can be bypassed
+    with ?cache=false.
   image: https://www.olympusdao.finance/images/og-image.png
   humanURL: https://github.com/OlympusDAO/coingecko-api
   baseURL: https://circulating-supply.api.olympusdao.finance
@@ -68,9 +64,8 @@ apis:
     url: https://www.olympusdao.finance/
   endpoints:
   - name: OHM Circulating Supply
-    description: >-
-      Returns the current OHM circulating supply as a plain-text numeric string. Cached in Firestore for
-      one hour; append ?cache=false to force a live fetch from the treasury subgraph API.
+    description: Returns the current OHM circulating supply as a plain-text numeric string. Cached in
+      Firestore for one hour; append ?cache=false to force a live fetch from the treasury subgraph API.
     method: GET
     path: /
     parameters:
@@ -86,10 +81,10 @@ apis:
     - OHM Supply
     - Circulating Supply
 - name: Olympus OHM Total Supply API
-  description: >-
-    Serverless GCP Cloud Function that returns the current OHM total supply as a plain-text numeric string.
-    Reads from a one-hour Firestore cache backed by the Olympus Protocol Metrics API. Used by CoinGecko
-    to display accurate total supply on the OHM token page. Cache can be bypassed with ?cache=false.
+  description: Serverless GCP Cloud Function that returns the current OHM total supply as a plain-text
+    numeric string. Reads from a one-hour Firestore cache backed by the Olympus Protocol Metrics API.
+    Used by CoinGecko to display accurate total supply on the OHM token page. Cache can be bypassed with
+    ?cache=false.
   image: https://www.olympusdao.finance/images/og-image.png
   humanURL: https://github.com/OlympusDAO/coingecko-api
   baseURL: https://total-supply.api.olympusdao.finance
@@ -105,9 +100,8 @@ apis:
     url: https://www.olympusdao.finance/
   endpoints:
   - name: OHM Total Supply
-    description: >-
-      Returns the current OHM total supply as a plain-text numeric string. Cached in Firestore for one
-      hour; append ?cache=false to force a live fetch from the treasury subgraph API.
+    description: Returns the current OHM total supply as a plain-text numeric string. Cached in Firestore
+      for one hour; append ?cache=false to force a live fetch from the treasury subgraph API.
     method: GET
     path: /
     parameters:
@@ -207,15 +201,17 @@ apis:
   - type: GitHubRepository
     url: https://github.com/OlympusDAO/olympus-protocol-metrics-subgraph
 maintainers:
-  - FN: OlympusDAO
-    X-twitter: OlympusDAO
-    url: https://www.olympusdao.finance/
+- FN: OlympusDAO
+  X-twitter: OlympusDAO
+  url: https://www.olympusdao.finance/
 common:
-  - type: IssueTracker
-    url: https://github.com/OlympusDAO/coingecko-api/issues
-  - type: AgenticAccess
-    url: agentic-access/olympusdao-agentic-access.yml
-  - type: DomainSecurity
-    url: security/olympusdao-domain-security.yml
-  - url: https://olympusdao.medium.com/feed
-    type: Blog
+- type: Website
+  url: https://olympusdao.finance
+- type: IssueTracker
+  url: https://github.com/OlympusDAO/coingecko-api/issues
+- type: AgenticAccess
+  url: agentic-access/olympusdao-agentic-access.yml
+- type: DomainSecurity
+  url: security/olympusdao-domain-security.yml
+- url: https://olympusdao.medium.com/feed
+  type: Blog
