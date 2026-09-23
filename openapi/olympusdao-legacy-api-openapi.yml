@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Olympus Protocol Metrics Health Legacy API
+  title: Olympus Protocol Metrics Legacy API
   version: 2.0.0
   description: Cacheable REST API for Olympus protocol metrics, treasury assets, and OHM supply. /operations routes are deprecated compatibility routes.
 servers:
@@ -13,7 +13,7 @@ paths:
   /operations/health:
     get:
       deprecated: true
-      summary: Legacy WunderGraph-compatible health response.
+      summary: Legacy WunderGraph-compatible health response
       operationId: getLegacyHealth
       tags:
       - Legacy
@@ -37,7 +37,7 @@ paths:
   /operations/latest/metrics:
     get:
       deprecated: true
-      summary: Latest protocol metrics.
+      summary: Latest protocol metrics
       operationId: getLatestMetrics
       tags:
       - Legacy
@@ -61,7 +61,7 @@ paths:
   /operations/earliest/metrics:
     get:
       deprecated: true
-      summary: Earliest protocol metrics.
+      summary: Earliest protocol metrics
       operationId: getEarliestMetrics
       tags:
       - Legacy
@@ -85,7 +85,7 @@ paths:
   /operations/paginated/metrics:
     get:
       deprecated: true
-      summary: Daily protocol metrics from a start date to optional end date.
+      summary: Daily protocol metrics from a start date to optional end date
       operationId: getPaginatedMetrics
       tags:
       - Legacy
@@ -109,7 +109,7 @@ paths:
   /operations/latest/tokenRecords:
     get:
       deprecated: true
-      summary: Latest treasury assets using the legacy tokenRecords shape.
+      summary: Latest treasury assets using the legacy tokenRecords shape
       operationId: getLatestTokenRecords
       tags:
       - Legacy
@@ -133,7 +133,7 @@ paths:
   /operations/earliest/tokenRecords:
     get:
       deprecated: true
-      summary: Earliest treasury assets using the legacy tokenRecords shape.
+      summary: Earliest treasury assets using the legacy tokenRecords shape
       operationId: getEarliestTokenRecords
       tags:
       - Legacy
@@ -157,7 +157,7 @@ paths:
   /operations/paginated/tokenRecords:
     get:
       deprecated: true
-      summary: Treasury assets using the legacy tokenRecords shape.
+      summary: Treasury assets using the legacy tokenRecords shape
       operationId: getPaginatedTokenRecords
       tags:
       - Legacy
@@ -181,7 +181,7 @@ paths:
   /operations/latest/tokenSupplies:
     get:
       deprecated: true
-      summary: Latest OHM supply using the legacy tokenSupplies shape.
+      summary: Latest OHM supply using the legacy tokenSupplies shape
       operationId: getLatestTokenSupplies
       tags:
       - Legacy
@@ -205,7 +205,7 @@ paths:
   /operations/earliest/tokenSupplies:
     get:
       deprecated: true
-      summary: Earliest OHM supply using the legacy tokenSupplies shape.
+      summary: Earliest OHM supply using the legacy tokenSupplies shape
       operationId: getEarliestTokenSupplies
       tags:
       - Legacy
@@ -229,7 +229,7 @@ paths:
   /operations/paginated/tokenSupplies:
     get:
       deprecated: true
-      summary: OHM supply using the legacy tokenSupplies shape.
+      summary: OHM supply using the legacy tokenSupplies shape
       operationId: getPaginatedTokenSupplies
       tags:
       - Legacy
@@ -253,7 +253,7 @@ paths:
   /operations/latest/protocolMetrics:
     get:
       deprecated: true
-      summary: Latest protocol metrics using the legacy protocolMetrics alias.
+      summary: Latest protocol metrics using the legacy protocolMetrics alias
       operationId: getLatestProtocolMetrics
       tags:
       - Legacy
@@ -277,7 +277,7 @@ paths:
   /operations/earliest/protocolMetrics:
     get:
       deprecated: true
-      summary: Earliest protocol metrics using the legacy protocolMetrics alias.
+      summary: Earliest protocol metrics using the legacy protocolMetrics alias
       operationId: getEarliestProtocolMetrics
       tags:
       - Legacy
@@ -301,7 +301,7 @@ paths:
   /operations/paginated/protocolMetrics:
     get:
       deprecated: true
-      summary: Protocol metrics from a start date to optional end date using the legacy protocolMetrics alias.
+      summary: Protocol metrics from a start date to optional end date using the legacy…
       operationId: getPaginatedProtocolMetrics
       tags:
       - Legacy
@@ -325,7 +325,7 @@ paths:
   /operations/atBlock/metrics:
     get:
       deprecated: true
-      summary: Deprecated atBlock metrics placeholder.
+      summary: Deprecated atBlock metrics placeholder
       operationId: getAtBlockMetrics
       tags:
       - Legacy
@@ -341,7 +341,7 @@ paths:
   /operations/atBlock/tokenRecords:
     get:
       deprecated: true
-      summary: Deprecated atBlock tokenRecords placeholder.
+      summary: Deprecated atBlock tokenRecords placeholder
       operationId: getAtBlockTokenRecords
       tags:
       - Legacy
@@ -357,7 +357,7 @@ paths:
   /operations/atBlock/tokenSupplies:
     get:
       deprecated: true
-      summary: Deprecated atBlock tokenSupplies placeholder.
+      summary: Deprecated atBlock tokenSupplies placeholder
       operationId: getAtBlockTokenSupplies
       tags:
       - Legacy
@@ -373,7 +373,7 @@ paths:
   /operations/atBlock/internal/protocolMetrics:
     get:
       deprecated: true
-      summary: Deprecated atBlock protocolMetrics placeholder.
+      summary: Deprecated atBlock protocolMetrics placeholder
       operationId: getAtBlockInternalProtocolMetrics
       tags:
       - Legacy

@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Olympus Protocol Metrics Health Treasury API
+  title: Olympus Protocol Metrics Treasury API
   version: 2.0.0
   description: Cacheable REST API for Olympus protocol metrics, treasury assets, and OHM supply. /operations routes are deprecated compatibility routes.
 servers:
@@ -52,6 +52,13 @@ paths:
                 $ref: '#/components/schemas/Error'
 components:
   schemas:
+    Error:
+      type: object
+      description: Error response.
+      properties:
+        error:
+          type: string
+          description: Human-readable error message.
     TreasuryAsset:
       type: object
       description: Individual treasury asset record for a given day.
@@ -94,10 +101,3 @@ components:
         block:
           type: integer
           description: Block number of the canonical snapshot.
-    Error:
-      type: object
-      description: Error response.
-      properties:
-        error:
-          type: string
-          description: Human-readable error message.

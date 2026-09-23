@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Olympus Protocol Metrics Health Metadata API
+  title: Olympus Protocol Metrics Metadata API
   version: 2.0.0
   description: Cacheable REST API for Olympus protocol metrics, treasury assets, and OHM supply. /operations routes are deprecated compatibility routes.
 servers:

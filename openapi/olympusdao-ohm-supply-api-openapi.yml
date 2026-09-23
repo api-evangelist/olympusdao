@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Olympus Protocol Metrics Health OHM Supply API
+  title: Olympus Protocol Metrics OHM Supply API
   version: 2.0.0
   description: Cacheable REST API for Olympus protocol metrics, treasury assets, and OHM supply. /operations routes are deprecated compatibility routes.
 servers:
@@ -52,6 +52,13 @@ paths:
                 $ref: '#/components/schemas/Error'
 components:
   schemas:
+    Error:
+      type: object
+      description: Error response.
+      properties:
+        error:
+          type: string
+          description: Human-readable error message.
     OhmSupplyRecord:
       type: object
       description: OHM supply attribution record for a given day.
@@ -89,10 +96,3 @@ components:
           type: number
           format: double
           description: USD value of the OHM balance.
-    Error:
-      type: object
-      description: Error response.
-      properties:
-        error:
-          type: string
-          description: Human-readable error message.
