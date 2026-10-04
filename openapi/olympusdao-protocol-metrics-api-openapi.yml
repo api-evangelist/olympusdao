@@ -59,13 +59,6 @@ paths:
                 $ref: '#/components/schemas/Error'
 components:
   schemas:
-    Error:
-      type: object
-      description: Error response.
-      properties:
-        error:
-          type: string
-          description: Human-readable error message.
     DailyMetric:
       type: object
       description: Daily cross-chain rollup protocol metric snapshot.
@@ -122,3 +115,10 @@ components:
           type: number
           format: double
           description: Treasury liquid backing value in USD.
+    Error:
+      type: object
+      description: Error response.
+      properties:
+        error:
+          type: string
+          description: Human-readable error message.
