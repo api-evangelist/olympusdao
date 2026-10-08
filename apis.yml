@@ -209,6 +209,12 @@ maintainers:
   X-twitter: OlympusDAO
   url: https://www.olympusdao.finance/
 common:
+- type: Plans
+  url: plans/plans.yml
+- type: RateLimits
+  url: rate-limits/rate-limits.yml
+- type: FinOps
+  url: finops/finops.yml
 - type: Website
   url: https://olympusdao.finance
 - type: IssueTracker
